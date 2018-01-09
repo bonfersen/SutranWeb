@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SUTRANModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SUTRANModelStoreContainer">
+          <EntitySet Name="Gen_tb_Flota" EntityType="SUTRANModel.Store.Gen_tb_Flota" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Gen_tb_Vehiculo" EntityType="SUTRANModel.Store.Gen_tb_Vehiculo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Gen_tb_VehiculoDetalle" EntityType="SUTRANModel.Store.Gen_tb_VehiculoDetalle" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Gen_tb_Vehiculo_Gen_tb_Flota" Association="SUTRANModel.Store.FK_Gen_tb_Vehiculo_Gen_tb_Flota">
+            <End Role="Gen_tb_Flota" EntitySet="Gen_tb_Flota" />
+            <End Role="Gen_tb_Vehiculo" EntitySet="Gen_tb_Vehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gen_tb_VehiculoDetalle_Gen_tb_Vehiculo" Association="SUTRANModel.Store.FK_Gen_tb_VehiculoDetalle_Gen_tb_Vehiculo">
+            <End Role="Gen_tb_Vehiculo" EntitySet="Gen_tb_Vehiculo" />
+            <End Role="Gen_tb_VehiculoDetalle" EntitySet="Gen_tb_VehiculoDetalle" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Gen_tb_Flota">
+          <Key>
+            <PropertyRef Name="idFlota" />
+          </Key>
+          <Property Name="idFlota" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nombreFlota" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="usuario" Type="varchar" MaxLength="30" />
+          <Property Name="password" Type="varchar" MaxLength="30" />
+          <Property Name="activo" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Gen_tb_Vehiculo">
+          <Key>
+            <PropertyRef Name="idVehiculo" />
+          </Key>
+          <Property Name="idVehiculo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="placa" Type="varchar" MaxLength="30" />
+          <Property Name="fechaRegistroApi" Type="datetime" />
+          <Property Name="idFlota" Type="int" Nullable="false" />
+          <Property Name="idVehiculoApi" Type="bigint" />
+          <Property Name="vin" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Gen_tb_VehiculoDetalle">
+          <Key>
+            <PropertyRef Name="idVehiDetalle" />
+          </Key>
+          <Property Name="idVehiDetalle" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="latitud" Type="decimal" Precision="20" Scale="14" />
+          <Property Name="longitud" Type="decimal" Precision="20" Scale="14" />
+          <Property Name="rumbo" Type="int" />
+          <Property Name="velocidad" Type="int" />
+          <Property Name="evento" Type="varchar" MaxLength="50" />
+          <Property Name="fechaRegistroGPS" Type="datetime" />
+          <Property Name="idVehiculo" Type="int" Nullable="false" />
+          <Property Name="estaTransmitido" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="combustibleAcumulado" Type="bigint" />
+          <Property Name="odometro" Type="bigint" />
+          <Property Name="porcentajeCombustible" Type="decimal" Precision="4" Scale="1" />
+        </EntityType>
+        <Association Name="FK_Gen_tb_Vehiculo_Gen_tb_Flota">
+          <End Role="Gen_tb_Flota" Type="SUTRANModel.Store.Gen_tb_Flota" Multiplicity="1" />
+          <End Role="Gen_tb_Vehiculo" Type="SUTRANModel.Store.Gen_tb_Vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_tb_Flota">
+              <PropertyRef Name="idFlota" />
+            </Principal>
+            <Dependent Role="Gen_tb_Vehiculo">
+              <PropertyRef Name="idFlota" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gen_tb_VehiculoDetalle_Gen_tb_Vehiculo">
+          <End Role="Gen_tb_Vehiculo" Type="SUTRANModel.Store.Gen_tb_Vehiculo" Multiplicity="1" />
+          <End Role="Gen_tb_VehiculoDetalle" Type="SUTRANModel.Store.Gen_tb_VehiculoDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_tb_Vehiculo">
+              <PropertyRef Name="idVehiculo" />
+            </Principal>
+            <Dependent Role="Gen_tb_VehiculoDetalle">
+              <PropertyRef Name="idVehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SUTRANModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SUTRANEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Gen_tb_Flota" EntityType="SUTRANModel.Gen_tb_Flota" />
+          <EntitySet Name="Gen_tb_Vehiculo" EntityType="SUTRANModel.Gen_tb_Vehiculo" />
+          <EntitySet Name="Gen_tb_VehiculoDetalle" EntityType="SUTRANModel.Gen_tb_VehiculoDetalle" />
+          <AssociationSet Name="FK_Gen_tb_Vehiculo_Gen_tb_Flota" Association="SUTRANModel.FK_Gen_tb_Vehiculo_Gen_tb_Flota">
+            <End Role="Gen_tb_Flota" EntitySet="Gen_tb_Flota" />
+            <End Role="Gen_tb_Vehiculo" EntitySet="Gen_tb_Vehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gen_tb_VehiculoDetalle_Gen_tb_Vehiculo" Association="SUTRANModel.FK_Gen_tb_VehiculoDetalle_Gen_tb_Vehiculo">
+            <End Role="Gen_tb_Vehiculo" EntitySet="Gen_tb_Vehiculo" />
+            <End Role="Gen_tb_VehiculoDetalle" EntitySet="Gen_tb_VehiculoDetalle" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Gen_tb_Flota">
+          <Key>
+            <PropertyRef Name="idFlota" />
+          </Key>
+          <Property Name="idFlota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreFlota" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="usuario" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="activo" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="Gen_tb_Vehiculo" Relationship="SUTRANModel.FK_Gen_tb_Vehiculo_Gen_tb_Flota" FromRole="Gen_tb_Flota" ToRole="Gen_tb_Vehiculo" />
+        </EntityType>
+        <EntityType Name="Gen_tb_Vehiculo">
+          <Key>
+            <PropertyRef Name="idVehiculo" />
+          </Key>
+          <Property Name="idVehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="placa" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="fechaRegistroApi" Type="DateTime" />
+          <Property Name="idFlota" Type="Int32" Nullable="false" />
+          <Property Name="idVehiculoApi" Type="Int64" />
+          <Property Name="vin" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Gen_tb_Flota" Relationship="SUTRANModel.FK_Gen_tb_Vehiculo_Gen_tb_Flota" FromRole="Gen_tb_Vehiculo" ToRole="Gen_tb_Flota" />
+          <NavigationProperty Name="Gen_tb_VehiculoDetalle" Relationship="SUTRANModel.FK_Gen_tb_VehiculoDetalle_Gen_tb_Vehiculo" FromRole="Gen_tb_Vehiculo" ToRole="Gen_tb_VehiculoDetalle" />
+        </EntityType>
+        <EntityType Name="Gen_tb_VehiculoDetalle">
+          <Key>
+            <PropertyRef Name="idVehiDetalle" />
+          </Key>
+          <Property Name="idVehiDetalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="latitud" Type="Decimal" Precision="20" Scale="14" />
+          <Property Name="longitud" Type="Decimal" Precision="20" Scale="14" />
+          <Property Name="rumbo" Type="Int32" />
+          <Property Name="velocidad" Type="Int32" />
+          <Property Name="evento" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="fechaRegistroGPS" Type="DateTime" />
+          <Property Name="idVehiculo" Type="Int32" Nullable="false" />
+          <Property Name="estaTransmitido" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="combustibleAcumulado" Type="Int64" />
+          <Property Name="odometro" Type="Int64" />
+          <Property Name="porcentajeCombustible" Type="Decimal" Precision="4" Scale="1" />
+          <NavigationProperty Name="Gen_tb_Vehiculo" Relationship="SUTRANModel.FK_Gen_tb_VehiculoDetalle_Gen_tb_Vehiculo" FromRole="Gen_tb_VehiculoDetalle" ToRole="Gen_tb_Vehiculo" />
+        </EntityType>
+        <Association Name="FK_Gen_tb_Vehiculo_Gen_tb_Flota">
+          <End Role="Gen_tb_Flota" Type="SUTRANModel.Gen_tb_Flota" Multiplicity="1" />
+          <End Role="Gen_tb_Vehiculo" Type="SUTRANModel.Gen_tb_Vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_tb_Flota">
+              <PropertyRef Name="idFlota" />
+            </Principal>
+            <Dependent Role="Gen_tb_Vehiculo">
+              <PropertyRef Name="idFlota" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gen_tb_VehiculoDetalle_Gen_tb_Vehiculo">
+          <End Role="Gen_tb_Vehiculo" Type="SUTRANModel.Gen_tb_Vehiculo" Multiplicity="1" />
+          <End Role="Gen_tb_VehiculoDetalle" Type="SUTRANModel.Gen_tb_VehiculoDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_tb_Vehiculo">
+              <PropertyRef Name="idVehiculo" />
+            </Principal>
+            <Dependent Role="Gen_tb_VehiculoDetalle">
+              <PropertyRef Name="idVehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SUTRANModelStoreContainer" CdmEntityContainer="SUTRANEntities">
+          <EntitySetMapping Name="Gen_tb_Flota"><EntityTypeMapping TypeName="SUTRANModel.Gen_tb_Flota"><MappingFragment StoreEntitySet="Gen_tb_Flota">
+            <ScalarProperty Name="idFlota" ColumnName="idFlota" />
+            <ScalarProperty Name="nombreFlota" ColumnName="nombreFlota" />
+            <ScalarProperty Name="usuario" ColumnName="usuario" />
+            <ScalarProperty Name="password" ColumnName="password" />
+            <ScalarProperty Name="activo" ColumnName="activo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Gen_tb_Vehiculo"><EntityTypeMapping TypeName="SUTRANModel.Gen_tb_Vehiculo"><MappingFragment StoreEntitySet="Gen_tb_Vehiculo">
+            <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
+            <ScalarProperty Name="placa" ColumnName="placa" />
+            <ScalarProperty Name="fechaRegistroApi" ColumnName="fechaRegistroApi" />
+            <ScalarProperty Name="idFlota" ColumnName="idFlota" />
+            <ScalarProperty Name="idVehiculoApi" ColumnName="idVehiculoApi" />
+            <ScalarProperty Name="vin" ColumnName="vin" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Gen_tb_VehiculoDetalle"><EntityTypeMapping TypeName="SUTRANModel.Gen_tb_VehiculoDetalle"><MappingFragment StoreEntitySet="Gen_tb_VehiculoDetalle">
+            <ScalarProperty Name="idVehiDetalle" ColumnName="idVehiDetalle" />
+            <ScalarProperty Name="latitud" ColumnName="latitud" />
+            <ScalarProperty Name="longitud" ColumnName="longitud" />
+            <ScalarProperty Name="rumbo" ColumnName="rumbo" />
+            <ScalarProperty Name="velocidad" ColumnName="velocidad" />
+            <ScalarProperty Name="evento" ColumnName="evento" />
+            <ScalarProperty Name="fechaRegistroGPS" ColumnName="fechaRegistroGPS" />
+            <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
+            <ScalarProperty Name="estaTransmitido" ColumnName="estaTransmitido" />
+            <ScalarProperty Name="combustibleAcumulado" ColumnName="combustibleAcumulado" />
+            <ScalarProperty Name="odometro" ColumnName="odometro" />
+            <ScalarProperty Name="porcentajeCombustible" ColumnName="porcentajeCombustible" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ModelSutran">
+        <EntityTypeShape EntityType="SUTRANModel.Gen_tb_Flota" Width="1.5" PointX="0.75" PointY="1.625" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SUTRANModel.Gen_tb_Vehiculo" Width="1.5" PointX="3" PointY="1.5" Height="2.5571907552083331" IsExpanded="true" />
+        <EntityTypeShape EntityType="SUTRANModel.Gen_tb_VehiculoDetalle" Width="1.5" PointX="5.25" PointY="1" Height="3.5186979166666656" IsExpanded="true" />
+        <AssociationConnector Association="SUTRANModel.FK_Gen_tb_Vehiculo_Gen_tb_Flota" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.7112939453125" />
+          <ConnectorPoint PointX="3" PointY="2.7112939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="SUTRANModel.FK_Gen_tb_VehiculoDetalle_Gen_tb_Vehiculo" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.7785953776041667" />
+          <ConnectorPoint PointX="5.25" PointY="2.7785953776041667" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

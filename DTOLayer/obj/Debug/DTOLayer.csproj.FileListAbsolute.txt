@@ -1,0 +1,10 @@
+c:\users\windows7\documents\visual studio 2010\Projects\DataModelLayer\DTOLayer\bin\Debug\DTOLayer.dll
+c:\users\windows7\documents\visual studio 2010\Projects\DataModelLayer\DTOLayer\bin\Debug\DTOLayer.pdb
+c:\users\windows7\documents\visual studio 2010\Projects\DataModelLayer\DTOLayer\obj\Debug\ResolveAssemblyReference.cache
+c:\users\windows7\documents\visual studio 2010\Projects\DataModelLayer\DTOLayer\obj\Debug\DTOLayer.dll
+c:\users\windows7\documents\visual studio 2010\Projects\DataModelLayer\DTOLayer\obj\Debug\DTOLayer.pdb
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DTOLayer\bin\Debug\DTOLayer.dll
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DTOLayer\bin\Debug\DTOLayer.pdb
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DTOLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DTOLayer\obj\Debug\DTOLayer.dll
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DTOLayer\obj\Debug\DTOLayer.pdb

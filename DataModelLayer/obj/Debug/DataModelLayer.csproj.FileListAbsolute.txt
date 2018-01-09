@@ -1,0 +1,13 @@
+c:\users\windows7\documents\visual studio 2010\Projects\DataModelLayer\DataModelLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DataModelLayer\bin\Debug\DataModelLayer.dll.config
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DataModelLayer\bin\Debug\DataModelLayer.dll
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DataModelLayer\bin\Debug\DataModelLayer.pdb
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DataModelLayer\bin\Debug\EntitiesLayer.dll
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DataModelLayer\bin\Debug\EntityFramework.dll
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DataModelLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DataModelLayer\bin\Debug\EntitiesLayer.pdb
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DataModelLayer\bin\Debug\EntityFramework.xml
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DataModelLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DataModelLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DataModelLayer\obj\Debug\DataModelLayer.dll
+C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DataModelLayer\obj\Debug\DataModelLayer.pdb

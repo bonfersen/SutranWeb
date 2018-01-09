@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SUTRANModelStoreContainer" CdmEntityContainer="SUTRANEntities">
+    <EntitySetMapping Name="Gen_tb_Flota">
+      <EntityTypeMapping TypeName="SUTRANModel.Gen_tb_Flota">
+        <MappingFragment StoreEntitySet="Gen_tb_Flota">
+          <ScalarProperty Name="idFlota" ColumnName="idFlota" />
+          <ScalarProperty Name="nombreFlota" ColumnName="nombreFlota" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_tb_Vehiculo">
+      <EntityTypeMapping TypeName="SUTRANModel.Gen_tb_Vehiculo">
+        <MappingFragment StoreEntitySet="Gen_tb_Vehiculo">
+          <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
+          <ScalarProperty Name="placa" ColumnName="placa" />
+          <ScalarProperty Name="fechaRegistroApi" ColumnName="fechaRegistroApi" />
+          <ScalarProperty Name="idFlota" ColumnName="idFlota" />
+          <ScalarProperty Name="idVehiculoApi" ColumnName="idVehiculoApi" />
+          <ScalarProperty Name="vin" ColumnName="vin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_tb_VehiculoDetalle">
+      <EntityTypeMapping TypeName="SUTRANModel.Gen_tb_VehiculoDetalle">
+        <MappingFragment StoreEntitySet="Gen_tb_VehiculoDetalle">
+          <ScalarProperty Name="idVehiDetalle" ColumnName="idVehiDetalle" />
+          <ScalarProperty Name="latitud" ColumnName="latitud" />
+          <ScalarProperty Name="longitud" ColumnName="longitud" />
+          <ScalarProperty Name="rumbo" ColumnName="rumbo" />
+          <ScalarProperty Name="velocidad" ColumnName="velocidad" />
+          <ScalarProperty Name="evento" ColumnName="evento" />
+          <ScalarProperty Name="fechaRegistroGPS" ColumnName="fechaRegistroGPS" />
+          <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
+          <ScalarProperty Name="estaTransmitido" ColumnName="estaTransmitido" />
+          <ScalarProperty Name="combustibleAcumulado" ColumnName="combustibleAcumulado" />
+          <ScalarProperty Name="odometro" ColumnName="odometro" />
+          <ScalarProperty Name="porcentajeCombustible" ColumnName="porcentajeCombustible" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
