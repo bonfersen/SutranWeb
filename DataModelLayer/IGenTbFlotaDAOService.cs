@@ -6,7 +6,7 @@ using EntitiesLayer;
 
 namespace DataModelLayer
 {
-    public interface IGenTbFlotaDAOService : IGenericRepository<Gen_tb_Flota>
+    public interface IGenTbFlotaDAOService : IGenericEntityRepository<Gen_tb_Flota>
     {
     }
 }

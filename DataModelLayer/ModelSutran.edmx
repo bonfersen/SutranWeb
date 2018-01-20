@@ -9,6 +9,21 @@
           <EntitySet Name="Gen_tb_Flota" EntityType="SUTRANModel.Store.Gen_tb_Flota" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Gen_tb_Vehiculo" EntityType="SUTRANModel.Store.Gen_tb_Vehiculo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Gen_tb_VehiculoDetalle" EntityType="SUTRANModel.Store.Gen_tb_VehiculoDetalle" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="viewReporteDynafleet" EntityType="SUTRANModel.Store.viewReporteDynafleet" store:Type="Views" store:Schema="dbo" store:Name="viewReporteDynafleet">
+            <DefiningQuery>SELECT 
+      [viewReporteDynafleet].[Usuario] AS [Usuario], 
+      [viewReporteDynafleet].[Nombre Flota] AS [Nombre Flota], 
+      [viewReporteDynafleet].[VIN] AS [VIN], 
+      [viewReporteDynafleet].[Evento] AS [Evento], 
+      [viewReporteDynafleet].[Fecha Hora evento] AS [Fecha Hora evento], 
+      [viewReporteDynafleet].[Velocidad] AS [Velocidad], 
+      [viewReporteDynafleet].[Latitud] AS [Latitud], 
+      [viewReporteDynafleet].[Longitud] AS [Longitud], 
+      [viewReporteDynafleet].[Porc. combustible] AS [Porc. combustible], 
+      [viewReporteDynafleet].[Combustible acumulado] AS [Combustible acumulado], 
+      [viewReporteDynafleet].[Odometro] AS [Odometro]
+      FROM [dbo].[viewReporteDynafleet] AS [viewReporteDynafleet]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Gen_tb_Vehiculo_Gen_tb_Flota" Association="SUTRANModel.Store.FK_Gen_tb_Vehiculo_Gen_tb_Flota">
             <End Role="Gen_tb_Flota" EntitySet="Gen_tb_Flota" />
             <End Role="Gen_tb_Vehiculo" EntitySet="Gen_tb_Vehiculo" />
@@ -56,6 +71,25 @@
           <Property Name="odometro" Type="bigint" />
           <Property Name="porcentajeCombustible" Type="decimal" Precision="4" Scale="1" />
         </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'SUTRAN.dbo.viewReporteDynafleet' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="viewReporteDynafleet">
+          <Key>
+            <PropertyRef Name="Nombre Flota" />
+          </Key>
+          <Property Name="Usuario" Type="varchar" MaxLength="30" />
+          <Property Name="Nombre Flota" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="VIN" Type="varchar" MaxLength="30" />
+          <Property Name="Evento" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha Hora evento" Type="nvarchar" />
+          <Property Name="Velocidad" Type="int" />
+          <Property Name="Latitud" Type="decimal" Precision="20" Scale="14" />
+          <Property Name="Longitud" Type="decimal" Precision="20" Scale="14" />
+          <Property Name="Porc. combustible" Type="decimal" Precision="4" Scale="1" />
+          <Property Name="Combustible acumulado" Type="bigint" />
+          <Property Name="Odometro" Type="bigint" />
+        </EntityType>
         <Association Name="FK_Gen_tb_Vehiculo_Gen_tb_Flota">
           <End Role="Gen_tb_Flota" Type="SUTRANModel.Store.Gen_tb_Flota" Multiplicity="1" />
           <End Role="Gen_tb_Vehiculo" Type="SUTRANModel.Store.Gen_tb_Vehiculo" Multiplicity="*" />
@@ -96,6 +130,7 @@
             <End Role="Gen_tb_Vehiculo" EntitySet="Gen_tb_Vehiculo" />
             <End Role="Gen_tb_VehiculoDetalle" EntitySet="Gen_tb_VehiculoDetalle" />
           </AssociationSet>
+          <EntitySet Name="viewReporteDynafleet" EntityType="SUTRANModel.viewReporteDynafleet" />
         </EntityContainer>
         <EntityType Name="Gen_tb_Flota">
           <Key>
@@ -163,6 +198,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="viewReporteDynafleet">
+          <Key>
+            <PropertyRef Name="Nombre_Flota" />
+          </Key>
+          <Property Type="String" Name="Usuario" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nombre_Flota" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VIN" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Evento" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Fecha_Hora_evento" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Velocidad" />
+          <Property Type="Decimal" Name="Latitud" Precision="20" Scale="14" />
+          <Property Type="Decimal" Name="Longitud" Precision="20" Scale="14" />
+          <Property Type="Decimal" Name="Porc__combustible" Precision="4" Scale="1" />
+          <Property Type="Int64" Name="Combustible_acumulado" />
+          <Property Type="Int64" Name="Odometro" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -198,6 +249,23 @@
             <ScalarProperty Name="odometro" ColumnName="odometro" />
             <ScalarProperty Name="porcentajeCombustible" ColumnName="porcentajeCombustible" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="viewReporteDynafleet">
+            <EntityTypeMapping TypeName="SUTRANModel.viewReporteDynafleet">
+              <MappingFragment StoreEntitySet="viewReporteDynafleet">
+                <ScalarProperty Name="Odometro" ColumnName="Odometro" />
+                <ScalarProperty Name="Combustible_acumulado" ColumnName="Combustible acumulado" />
+                <ScalarProperty Name="Porc__combustible" ColumnName="Porc. combustible" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Velocidad" ColumnName="Velocidad" />
+                <ScalarProperty Name="Fecha_Hora_evento" ColumnName="Fecha Hora evento" />
+                <ScalarProperty Name="Evento" ColumnName="Evento" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
+                <ScalarProperty Name="Nombre_Flota" ColumnName="Nombre Flota" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -231,6 +299,7 @@
           <ConnectorPoint PointX="4.5" PointY="2.7785953776041667" />
           <ConnectorPoint PointX="5.25" PointY="2.7785953776041667" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="SUTRANModel.viewReporteDynafleet" Width="1.5" PointX="8.625" PointY="1" Height="3.1340950520833335" />
       </Diagram>
     </Diagrams>
   </Designer>

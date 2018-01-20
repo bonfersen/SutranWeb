@@ -52,10 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GenericRepositoryImpl.cs" />
+    <Compile Include="GenericEntityRepositoryImpl.cs" />
+    <Compile Include="GenericViewRepositoryImpl.cs.cs" />
     <Compile Include="GenTbFlotaDAOImpl.cs" />
-    <Compile Include="IGenericRepositoryService.cs" />
+    <Compile Include="IGenericEntityRepositoryService.cs" />
+    <Compile Include="IGenericViewRepository.cs" />
     <Compile Include="IGenTbFlotaDAOService.cs" />
+    <Compile Include="IViewReporteSutranService.cs" />
     <Compile Include="ModelSutran.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -67,6 +70,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SUTRANEntities.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewReporteSutranImpl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

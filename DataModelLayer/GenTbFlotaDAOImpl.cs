@@ -9,7 +9,7 @@ namespace DataModelLayer
 {
     public class GenTbFlotaDAOImpl : IGenTbFlotaDAOService
     {
-        private GenericRepository<Gen_tb_Flota> genericRepository = new GenericRepository<Gen_tb_Flota>(new SUTRANEntities());
+        private GenericEntityRepositoryImpl<Gen_tb_Flota> genericRepository = new GenericEntityRepositoryImpl<Gen_tb_Flota>(new SUTRANEntities());
         
         public List<Gen_tb_Flota> Get(System.Linq.Expressions.Expression<Func<Gen_tb_Flota, bool>> filter = null, Func<IQueryable<Gen_tb_Flota>, IOrderedQueryable<Gen_tb_Flota>> orderBy = null, string includeProperties = "")
         {

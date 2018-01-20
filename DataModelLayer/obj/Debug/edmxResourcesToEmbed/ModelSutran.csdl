@@ -12,6 +12,7 @@
       <End Role="Gen_tb_Vehiculo" EntitySet="Gen_tb_Vehiculo" />
       <End Role="Gen_tb_VehiculoDetalle" EntitySet="Gen_tb_VehiculoDetalle" />
     </AssociationSet>
+    <EntitySet Name="viewReporteDynafleet" EntityType="SUTRANModel.viewReporteDynafleet" />
   </EntityContainer>
   <EntityType Name="Gen_tb_Flota">
     <Key>
@@ -79,4 +80,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="viewReporteDynafleet">
+    <Key>
+      <PropertyRef Name="Nombre_Flota" />
+    </Key>
+    <Property Type="String" Name="Usuario" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Nombre_Flota" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="VIN" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Evento" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Fecha_Hora_evento" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Velocidad" />
+    <Property Type="Decimal" Name="Latitud" Precision="20" Scale="14" />
+    <Property Type="Decimal" Name="Longitud" Precision="20" Scale="14" />
+    <Property Type="Decimal" Name="Porc__combustible" Precision="4" Scale="1" />
+    <Property Type="Int64" Name="Combustible_acumulado" />
+    <Property Type="Int64" Name="Odometro" />
+  </EntityType>
 </Schema>

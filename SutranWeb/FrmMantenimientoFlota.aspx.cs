@@ -10,7 +10,7 @@ using DTOLayer;
 namespace SutranWeb
 {
 
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class FrmMantenimientoFlota : System.Web.UI.Page
     {
         FlotaBusinessImpl flotaBusiness;
 

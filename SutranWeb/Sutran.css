@@ -1,6 +1,29 @@
-﻿body {
+﻿body
+{
 }
 .alinear
 {
     text-align: center;
+}
+.modalBackground
+{
+    background-color: silver;
+    opacity: 0.7;
+}
+h3
+{
+    text-align: center;
+    background-color: #5D7B9D;
+    color: white;
+}
+div.ex1
+{
+    background-color: #FFFDF8;
+    width: 500px;
+    margin: auto;
+    border: 2px solid #5D7B9D;
+}
+th
+{
+    text-align: left;
 }

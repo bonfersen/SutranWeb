@@ -7,7 +7,7 @@ namespace DTOLayer
 {
     public class FlotaDTO
     {
-        private string _activo;
+        //private string _activo;
 
         public virtual int idFlota
         {

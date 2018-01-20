@@ -1,30 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmAgregarFlota.aspx.cs"
     Inherits="SutranWeb.FrmAgregarFlota" %>
-
+<link href="Sutran.css" rel="stylesheet" type="text/css" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
 </head>
-<style>
-    h3
-    {
-        text-align: center;
-        background-color: #5D7B9D;
-        color: white;
-    }
-    div.ex1 
-    {
-        background-color: #FFFDF8;
-        width:500px;
-        margin: auto;
-        border: 2px solid #5D7B9D;        
-    }
-    th
-    {
-        text-align:left;
-    }
-</style>
 <body>
     <form id="form1" runat="server">
     <div class="ex1">

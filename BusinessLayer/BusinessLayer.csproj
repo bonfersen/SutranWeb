@@ -67,7 +67,9 @@
   <ItemGroup>
     <Compile Include="FlotaBusinessImpl.cs" />
     <Compile Include="IFlotaBusiness.cs" />
+    <Compile Include="IViewBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewBusinessImpl.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataModelLayer\DataModelLayer.csproj">

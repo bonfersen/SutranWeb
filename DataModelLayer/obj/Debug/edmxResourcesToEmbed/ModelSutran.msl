@@ -42,5 +42,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="viewReporteDynafleet">
+      <EntityTypeMapping TypeName="SUTRANModel.viewReporteDynafleet">
+        <MappingFragment StoreEntitySet="viewReporteDynafleet">
+          <ScalarProperty Name="Odometro" ColumnName="Odometro" />
+          <ScalarProperty Name="Combustible_acumulado" ColumnName="Combustible acumulado" />
+          <ScalarProperty Name="Porc__combustible" ColumnName="Porc. combustible" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Velocidad" ColumnName="Velocidad" />
+          <ScalarProperty Name="Fecha_Hora_evento" ColumnName="Fecha Hora evento" />
+          <ScalarProperty Name="Evento" ColumnName="Evento" />
+          <ScalarProperty Name="VIN" ColumnName="VIN" />
+          <ScalarProperty Name="Nombre_Flota" ColumnName="Nombre Flota" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

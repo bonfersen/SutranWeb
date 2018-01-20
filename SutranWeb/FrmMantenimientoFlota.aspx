@@ -1,19 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmMantenimientoFlota.aspx.cs"
-    Inherits="SutranWeb.WebForm1" %>
-
+    Inherits="SutranWeb.FrmMantenimientoFlota" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <link href="Sutran.css" rel="stylesheet" type="text/css" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
-        .modalBackground
-        {
-            background-color: silver;
-            opacity: 0.7;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">

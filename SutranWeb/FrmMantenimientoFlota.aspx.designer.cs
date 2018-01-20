@@ -8,9 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace SutranWeb {
-    
-    
-    public partial class WebForm1 {
+
+
+    public partial class FrmMantenimientoFlota
+    {
         
         /// <summary>
         /// Control form1.
