@@ -14,17 +14,19 @@ namespace EntitiesLayer
 {
     public partial class viewReporteDynafleet
     {
-        public string Usuario { get; set; }
-        public string Nombre_Flota { get; set; }
-        public string VIN { get; set; }
-        public string Evento { get; set; }
-        public string Fecha_Hora_evento { get; set; }
-        public Nullable<int> Velocidad { get; set; }
-        public Nullable<decimal> Latitud { get; set; }
-        public Nullable<decimal> Longitud { get; set; }
-        public Nullable<decimal> Porc__combustible { get; set; }
-        public Nullable<long> Combustible_acumulado { get; set; }
-        public Nullable<long> Odometro { get; set; }
+        public int idVehiDetalle { get; set; }
+        public string usuario { get; set; }
+        public string nombreFlota { get; set; }
+        public string vin { get; set; }
+        public string evento { get; set; }
+        public Nullable<System.DateTime> fechaRegistroGPS { get; set; }
+        public string fechaRegistroGPSFormato { get; set; }
+        public Nullable<int> velocidad { get; set; }
+        public Nullable<decimal> latitud { get; set; }
+        public Nullable<decimal> longitud { get; set; }
+        public Nullable<decimal> porcentajeCombustible { get; set; }
+        public Nullable<long> combustibleAcumulado { get; set; }
+        public Nullable<long> odometro { get; set; }
     }
     
 }

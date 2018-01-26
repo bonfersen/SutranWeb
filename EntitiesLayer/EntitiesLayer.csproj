@@ -63,6 +63,8 @@
     </Compile>
     <Compile Include="viewReporteDynafleet.cs">
       <DependentUpon>SUTRANEntities.tt</DependentUpon>
+      <SubType>
+      </SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

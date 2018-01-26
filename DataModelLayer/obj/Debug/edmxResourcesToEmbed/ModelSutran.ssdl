@@ -6,17 +6,19 @@
     <EntitySet Name="Gen_tb_VehiculoDetalle" EntityType="SUTRANModel.Store.Gen_tb_VehiculoDetalle" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="viewReporteDynafleet" EntityType="SUTRANModel.Store.viewReporteDynafleet" store:Type="Views" store:Schema="dbo" store:Name="viewReporteDynafleet">
       <DefiningQuery>SELECT 
-      [viewReporteDynafleet].[Usuario] AS [Usuario], 
-      [viewReporteDynafleet].[Nombre Flota] AS [Nombre Flota], 
-      [viewReporteDynafleet].[VIN] AS [VIN], 
-      [viewReporteDynafleet].[Evento] AS [Evento], 
-      [viewReporteDynafleet].[Fecha Hora evento] AS [Fecha Hora evento], 
-      [viewReporteDynafleet].[Velocidad] AS [Velocidad], 
-      [viewReporteDynafleet].[Latitud] AS [Latitud], 
-      [viewReporteDynafleet].[Longitud] AS [Longitud], 
-      [viewReporteDynafleet].[Porc. combustible] AS [Porc. combustible], 
-      [viewReporteDynafleet].[Combustible acumulado] AS [Combustible acumulado], 
-      [viewReporteDynafleet].[Odometro] AS [Odometro]
+      [viewReporteDynafleet].[idVehiDetalle] AS [idVehiDetalle], 
+      [viewReporteDynafleet].[usuario] AS [usuario], 
+      [viewReporteDynafleet].[nombreFlota] AS [nombreFlota], 
+      [viewReporteDynafleet].[vin] AS [vin], 
+      [viewReporteDynafleet].[evento] AS [evento], 
+      [viewReporteDynafleet].[fechaRegistroGPS] AS [fechaRegistroGPS], 
+      [viewReporteDynafleet].[fechaRegistroGPSFormato] AS [fechaRegistroGPSFormato], 
+      [viewReporteDynafleet].[velocidad] AS [velocidad], 
+      [viewReporteDynafleet].[latitud] AS [latitud], 
+      [viewReporteDynafleet].[longitud] AS [longitud], 
+      [viewReporteDynafleet].[porcentajeCombustible] AS [porcentajeCombustible], 
+      [viewReporteDynafleet].[combustibleAcumulado] AS [combustibleAcumulado], 
+      [viewReporteDynafleet].[odometro] AS [odometro]
       FROM [dbo].[viewReporteDynafleet] AS [viewReporteDynafleet]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_Gen_tb_Vehiculo_Gen_tb_Flota" Association="SUTRANModel.Store.FK_Gen_tb_Vehiculo_Gen_tb_Flota">
@@ -71,19 +73,22 @@
       -->
   <EntityType Name="viewReporteDynafleet">
     <Key>
-      <PropertyRef Name="Nombre Flota" />
+      <PropertyRef Name="idVehiDetalle" />
+      <PropertyRef Name="nombreFlota" />
     </Key>
-    <Property Name="Usuario" Type="varchar" MaxLength="30" />
-    <Property Name="Nombre Flota" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="VIN" Type="varchar" MaxLength="30" />
-    <Property Name="Evento" Type="varchar" MaxLength="50" />
-    <Property Name="Fecha Hora evento" Type="nvarchar" />
-    <Property Name="Velocidad" Type="int" />
-    <Property Name="Latitud" Type="decimal" Precision="20" Scale="14" />
-    <Property Name="Longitud" Type="decimal" Precision="20" Scale="14" />
-    <Property Name="Porc. combustible" Type="decimal" Precision="4" Scale="1" />
-    <Property Name="Combustible acumulado" Type="bigint" />
-    <Property Name="Odometro" Type="bigint" />
+    <Property Name="idVehiDetalle" Type="int" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="30" />
+    <Property Name="nombreFlota" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="vin" Type="varchar" MaxLength="30" />
+    <Property Name="evento" Type="varchar" MaxLength="50" />
+    <Property Name="fechaRegistroGPS" Type="datetime" />
+    <Property Name="fechaRegistroGPSFormato" Type="nvarchar" />
+    <Property Name="velocidad" Type="int" />
+    <Property Name="latitud" Type="decimal" Precision="20" Scale="14" />
+    <Property Name="longitud" Type="decimal" Precision="20" Scale="14" />
+    <Property Name="porcentajeCombustible" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="combustibleAcumulado" Type="bigint" />
+    <Property Name="odometro" Type="bigint" />
   </EntityType>
   <Association Name="FK_Gen_tb_Vehiculo_Gen_tb_Flota">
     <End Role="Gen_tb_Flota" Type="SUTRANModel.Store.Gen_tb_Flota" Multiplicity="1" />

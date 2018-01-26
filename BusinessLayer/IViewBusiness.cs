@@ -8,6 +8,6 @@ namespace BusinessLayer
 {
     public interface IViewBusiness
     {
-        object GetViewSutranReportEvent(int startIndex, int count, string sorting);
+        object GetViewSutranReportEvent(string txtFechaEventoInicial, string txtFechaEventoFinal, string txtVin, int jtStartIndex, int jtPageSize, string jtSorting);
     }
 }

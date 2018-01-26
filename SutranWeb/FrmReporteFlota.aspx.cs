@@ -18,16 +18,17 @@ namespace SutranWeb
             viewBusiness = (ViewBusinessImpl)UnityLoad<IViewBusiness>.getUnityContainer();
             if (!IsPostBack)
             {
-                String volvi = null;
+                //String volvi = null;
             }
         }
 
         [WebMethod(EnableSession = true)]
-        public static object ReporteEventoByFilter(int jtStartIndex, int jtPageSize, string jtSorting)
+        public static object ReporteEventoByFilter(string txtFechaEventoInicial, string txtFechaEventoFinal, string txtVin,
+                                                        int jtStartIndex, int jtPageSize, string jtSorting)
         {
             try
             {
-                return viewBusiness.GetViewSutranReportEvent(jtStartIndex, jtPageSize, jtSorting);
+                return viewBusiness.GetViewSutranReportEvent(txtFechaEventoInicial, txtFechaEventoFinal, txtVin, jtStartIndex, jtPageSize, jtSorting);
             }
             catch (Exception ee)
             {

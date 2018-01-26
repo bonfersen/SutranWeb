@@ -45,17 +45,19 @@
     <EntitySetMapping Name="viewReporteDynafleet">
       <EntityTypeMapping TypeName="SUTRANModel.viewReporteDynafleet">
         <MappingFragment StoreEntitySet="viewReporteDynafleet">
-          <ScalarProperty Name="Odometro" ColumnName="Odometro" />
-          <ScalarProperty Name="Combustible_acumulado" ColumnName="Combustible acumulado" />
-          <ScalarProperty Name="Porc__combustible" ColumnName="Porc. combustible" />
-          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
-          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
-          <ScalarProperty Name="Velocidad" ColumnName="Velocidad" />
-          <ScalarProperty Name="Fecha_Hora_evento" ColumnName="Fecha Hora evento" />
-          <ScalarProperty Name="Evento" ColumnName="Evento" />
-          <ScalarProperty Name="VIN" ColumnName="VIN" />
-          <ScalarProperty Name="Nombre_Flota" ColumnName="Nombre Flota" />
-          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="odometro" ColumnName="odometro" />
+          <ScalarProperty Name="combustibleAcumulado" ColumnName="combustibleAcumulado" />
+          <ScalarProperty Name="porcentajeCombustible" ColumnName="porcentajeCombustible" />
+          <ScalarProperty Name="longitud" ColumnName="longitud" />
+          <ScalarProperty Name="latitud" ColumnName="latitud" />
+          <ScalarProperty Name="velocidad" ColumnName="velocidad" />
+          <ScalarProperty Name="fechaRegistroGPSFormato" ColumnName="fechaRegistroGPSFormato" />
+          <ScalarProperty Name="fechaRegistroGPS" ColumnName="fechaRegistroGPS" />
+          <ScalarProperty Name="evento" ColumnName="evento" />
+          <ScalarProperty Name="vin" ColumnName="vin" />
+          <ScalarProperty Name="nombreFlota" ColumnName="nombreFlota" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="idVehiDetalle" ColumnName="idVehiDetalle" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
