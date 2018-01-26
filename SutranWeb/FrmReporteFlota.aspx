@@ -59,7 +59,10 @@
                         icon: '/images/excel.png',
                         text: 'Exportar a Excel',
                         click: function () {
-                            alert('excel');
+
+
+                            $('input[id$=hdntextbox]').val(Math.random()).change(); 
+                            
                         }
                     }]
                 },
@@ -139,7 +142,9 @@
 
     </script>
     <div class="filtering">
-        <form id="Form1" runat="server">
+        <form id="FormReporte" runat="server">
+        <asp:TextBox runat="server" ID="hdntextbox" Value="" Style="display:none;" AutoPostBack="true" OnTextChanged="hdntextbox_TextChanged"></asp:TextBox>
+
         <table>
             <tr>
                 <th>

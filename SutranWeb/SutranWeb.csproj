@@ -35,6 +35,10 @@
     <Reference Include="AjaxControlToolkit, Version=17.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.8.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.8.1\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.2.0\lib\20\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -56,6 +60,7 @@
       <HintPath>..\packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -71,6 +76,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\jquery-ui-timepicker-addon.css" />
@@ -324,6 +330,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ExportToExcel.cs" />
+    <Compile Include="Classes\SutranWebConstants.cs" />
     <Compile Include="FrmReporteFlota.aspx.cs">
       <DependentUpon>FrmReporteFlota.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -331,7 +339,6 @@
     <Compile Include="FrmReporteFlota.aspx.designer.cs">
       <DependentUpon>FrmReporteFlota.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UnityLoad.cs" />
     <Compile Include="FrmAgregarFlota.aspx.cs">
       <DependentUpon>FrmAgregarFlota.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -347,6 +354,7 @@
       <DependentUpon>FrmMantenimientoFlota.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Classes\UnityLoad.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
@@ -356,6 +364,10 @@
     <ProjectReference Include="..\DTOLayer\DTOLayer.csproj">
       <Project>{F7636B21-A7E7-4273-8538-F68628168A31}</Project>
       <Name>DTOLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntitiesLayer\EntitiesLayer.csproj">
+      <Project>{1AE898BD-10F3-476D-88C9-BDA188C57ECD}</Project>
+      <Name>EntitiesLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

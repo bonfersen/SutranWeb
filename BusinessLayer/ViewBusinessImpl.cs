@@ -11,7 +11,9 @@ namespace BusinessLayer
 {
     public class ViewBusinessImpl : IViewBusiness
     {
-        public object GetViewSutranReportEvent(string txtFechaEventoInicial, string txtFechaEventoFinal, string txtVin, int jtStartIndex, int jtPageSize, string jtSorting)
+        public List<viewReporteDynafleet> lstViewReporteDynafleetSinPaginar;
+
+        public Dictionary<string, object> GetViewSutranReportEvent(string txtFechaEventoInicial, string txtFechaEventoFinal, string txtVin, int jtStartIndex, int jtPageSize, string jtSorting)
         {
             ViewReporteSutranImpl reporteEventoDAO = new ViewReporteSutranImpl();
                         
@@ -42,7 +44,7 @@ namespace BusinessLayer
             {
                 txtFechaEventoInicial = txtFechaEventoInicial + ":00";
                 DateTime dtFechaEventoInicial = Convert.ToDateTime(txtFechaEventoInicial);
-                txtFechaEventoFinal = txtFechaEventoFinal + ":00";
+                txtFechaEventoFinal = txtFechaEventoFinal + ":59";
                 DateTime dtFechaEventoFinal = Convert.ToDateTime(txtFechaEventoFinal);
                 if (string.IsNullOrEmpty(txtVin))
                     reporteFilter = reporteIQ => reporteIQ.fechaRegistroGPS >= dtFechaEventoInicial && reporteIQ.fechaRegistroGPS <= dtFechaEventoFinal;
@@ -51,14 +53,20 @@ namespace BusinessLayer
             }
 
             // Obtener la consulta paginada desde BD
-            List<viewReporteDynafleet> lstViewReporteDynafleet = reporteEventoDAO.GetViewSutranReportEvent(jtStartIndex, jtPageSize, filter: reporteFilter, orderBy: reporteOrderBy);
+            List<viewReporteDynafleet> lstViewReporteDynafleetPaginado = reporteEventoDAO.GetViewSutranReportEvent(jtStartIndex, jtPageSize, filter: reporteFilter, orderBy: reporteOrderBy);
 
             // Obtener la cantidad de registros de la consulta sin paginacion
-            List<viewReporteDynafleet> lstViewReporteDynafleetCount = reporteEventoDAO.GetViewSutranReportEvent(0, 0, filter: reporteFilter, orderBy: reporteOrderBy);
-            int reportCount = lstViewReporteDynafleetCount.Count;
+            lstViewReporteDynafleetSinPaginar = reporteEventoDAO.GetViewSutranReportEvent(0, 0, filter: reporteFilter, orderBy: reporteOrderBy);
+            int reportCount = lstViewReporteDynafleetSinPaginar.Count;
 
             //Return result to jTable
-            return new { Result = "OK", Records = lstViewReporteDynafleet, TotalRecordCount = reportCount };
+            Dictionary<string, object> reporteDictionary = new Dictionary<string, object>();
+            reporteDictionary.Add("Result" , "OK");
+            reporteDictionary.Add("Records", lstViewReporteDynafleetPaginado);
+            reporteDictionary.Add("TotalRecordCount" , reportCount);
+            reporteDictionary.Add("RecordsSinPaginar", lstViewReporteDynafleetSinPaginar);
+
+            return reporteDictionary;
         }
     }
 }

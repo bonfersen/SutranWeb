@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BusinessLayer;
+using SutranWeb;
+using SutranWeb.Classes;
 using DTOLayer;
 
 namespace SutranWeb

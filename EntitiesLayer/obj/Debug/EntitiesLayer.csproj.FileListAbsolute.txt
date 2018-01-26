@@ -1,5 +1,5 @@
-C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\EntitiesLayer\bin\Debug\EntitiesLayer.dll
-C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\EntitiesLayer\bin\Debug\EntitiesLayer.pdb
-C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\EntitiesLayer\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\EntitiesLayer\obj\Debug\EntitiesLayer.dll
-C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\EntitiesLayer\obj\Debug\EntitiesLayer.pdb
+C:\Users\windows7\Documents\Visual Studio 2010\Projects\SutranWeb\EntitiesLayer\bin\Debug\EntitiesLayer.dll
+C:\Users\windows7\Documents\Visual Studio 2010\Projects\SutranWeb\EntitiesLayer\bin\Debug\EntitiesLayer.pdb
+C:\Users\windows7\Documents\Visual Studio 2010\Projects\SutranWeb\EntitiesLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\windows7\Documents\Visual Studio 2010\Projects\SutranWeb\EntitiesLayer\obj\Debug\EntitiesLayer.dll
+C:\Users\windows7\Documents\Visual Studio 2010\Projects\SutranWeb\EntitiesLayer\obj\Debug\EntitiesLayer.pdb

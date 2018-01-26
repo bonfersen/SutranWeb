@@ -6,6 +6,9 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BusinessLayer;
+using SutranWeb;
+using EntitiesLayer;
+using SutranWeb.Classes;
 
 namespace SutranWeb
 {
@@ -28,7 +31,12 @@ namespace SutranWeb
         {
             try
             {
-                return viewBusiness.GetViewSutranReportEvent(txtFechaEventoInicial, txtFechaEventoFinal, txtVin, jtStartIndex, jtPageSize, jtSorting);
+                Dictionary<string, object> reporteDictionary = viewBusiness.GetViewSutranReportEvent(txtFechaEventoInicial, 
+                                                                txtFechaEventoFinal, txtVin, jtStartIndex, jtPageSize, jtSorting);
+                System.Web.HttpContext.Current.Session["listaReporteEventos"] = reporteDictionary["RecordsSinPaginar"];
+
+                return new { Result = reporteDictionary["Result"], Records = reporteDictionary["Records"],
+                             TotalRecordCount = reporteDictionary["TotalRecordCount"] };
             }
             catch (Exception ee)
             {
@@ -36,5 +44,23 @@ namespace SutranWeb
             }
 
         }
+
+        protected void hdntextbox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {   
+                List<viewReporteDynafleet> listaReporteEventos = System.Web.HttpContext.Current.Session["listaReporteEventos"] as List<viewReporteDynafleet>;
+                int t =listaReporteEventos.Count;
+                String reportName = SutranWebConstants.EXCEL_REPORTE_EVENTOS;
+
+                ExportToExcel.CreateExcelDocument(listaReporteEventos, reportName, Response);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: '{0}'", ex);
+            }
+        }
+
+        
     }
 }
