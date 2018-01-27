@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>Filtering With jTable and ASP.NET Web Forms</title>
+    <title>Reporte de Eventos</title>
     <link href="/Content/Site.css" rel="stylesheet" type="text/css" />
     <!-- JQuery UI -->
     <link href="/Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />
@@ -24,15 +24,8 @@
     <!-- Jquery TimePicker -->
     <link rel="stylesheet" media="all" type="text/css" href="/Content/jquery-ui-timepicker-addon.css" />
     <script src="/Scripts/jquery-ui-timepicker-addon.min.js" type="text/javascript"></script>
-    <style>
-        div.filtering
-        {
-            border: 1px solid #999;
-            margin-bottom: 5px;
-            padding: 10px;
-            background-color: #EEE;
-        }
-    </style>
+    <!-- Sutran -->
+    <link href="Sutran.css" rel="stylesheet" type="text/css" />    
 </head>
 <body>
     <script type="text/javascript">
@@ -48,7 +41,6 @@
                 defaultSorting: 'fechaRegistroGPS DESC',
                 actions: {
                     listAction: '/FrmReporteFlota.aspx/ReporteEventoByFilter'
-
                 },
                 toolbar: {
                     hoverAnimation: true,
@@ -59,62 +51,71 @@
                         icon: '/images/excel.png',
                         text: 'Exportar a Excel',
                         click: function () {
-
-
-                            $('input[id$=hdntextbox]').val(Math.random()).change(); 
-                            
+                            $('input[id$=hdntextbox]').val(Math.random()).change();                            
                         }
                     }]
                 },
                 fields: {
                     usuario: {
                         title: 'Usuario',
-                        width: '23%'
+                        sorting: false,
+                        width: '15%'
                     },
                     nombreFlota: {
-                        title: 'Nombre Flota'
+                        title: 'Nombre Flota',
+                        sorting: false,
+                        width: '10%'
                     },
                     vin: {
-                        title: 'VIN'
+                        title: 'VIN',
+                        sorting: false,
+                        width: '8%'
                     },
                     evento: {
                         title: 'Evento',
                         width: '8%',
-                        options: { 'ER': 'ER-', 'EX': 'EX-', 'PA': 'PA-' }
+                        sorting: false,
+                        options: { 'ER': 'ER', 'EX': 'EX', 'PA': 'PA' }
                     },
                     fechaRegistroGPS: {
                         title: 'fechaRegistroGPS',
                         list: false
                     },
                     fechaRegistroGPSFormato: {
-                        title: 'Fecha Hora Evento',
-                        width: '30%'
+                        title: 'Fecha Evento',
+                        width: '10%'
 
                     },
                     velocidad: {
                         title: 'Velocidad',
-                        width: '8%'
+                        sorting: false,
+                        width: '10%'
 
                     },
                     latitud: {
-                        title: 'Latitud'
-
+                        title: 'Latitud',
+                        sorting: false,
+                        width: '10%'
                     },
                     longitud: {
-                        title: 'Longitud'
-
+                        title: 'Longitud',
+                        sorting: false,
+                        width: '10%'
                     },
                     porcentajeCombustible: {
-                        title: '% Combustible'
-
+                        title: '% Combus.',
+                        sorting: false,
+                        width: '8%'
                     },
-                    combustibleAcumulado: {
-                        title: 'Combustible Acumulado'
-
+                    combustibleAcumuladoFormat: {
+                        title: 'Combus. Acum.',
+                        sorting: false,
+                        width: '10%'
                     },
                     odometro: {
-                        title: 'Odometro'
-
+                        title: 'Odometro',
+                        sorting: false,
+                        width: '10%'
                     }
                 }
             });

@@ -36,8 +36,7 @@ namespace BusinessLayer
 
             // Preparar la expresion para filtrar la data de acuerdo los filtros seleccionados
             Expression<Func<viewReporteDynafleet, bool>> reporteFilter = null;
-             
-
+                        
             if (!string.IsNullOrEmpty(txtVin))
                 reporteFilter = reporteIQ => reporteIQ.vin == txtVin;
             if (!string.IsNullOrEmpty(txtFechaEventoInicial) && !string.IsNullOrEmpty(txtFechaEventoFinal))

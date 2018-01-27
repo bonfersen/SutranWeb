@@ -16,13 +16,15 @@ namespace SutranWeb
     {
         FlotaBusinessImpl flotaBusiness;
 
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             flotaBusiness = (FlotaBusinessImpl)UnityLoad<IFlotaBusiness>.getUnityContainer();
             //LLenar Datos
             getFlotas();
         }
-
+        
         protected void gridFlotas_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -48,7 +50,8 @@ namespace SutranWeb
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("FrmAgregarFlota.aspx");
+            //Response.Redirect("FrmAgregarFlota.aspx");
+            mpeAdd.Show();
         }
 
         protected void lnkEdit_Click(object sender, EventArgs e)
@@ -111,7 +114,35 @@ namespace SutranWeb
 
         protected void btnCancelUpdate_Click(object sender, EventArgs e)
         {
-           // clearData(panelEdit);
+            // clearData(panelEdit);
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FlotaDTO flotaDTO = new FlotaDTO();
+                flotaDTO.nombreFlota = txtSaveCliente.Text;
+                flotaDTO.usuario = txtSaveUsuario.Text;
+                flotaDTO.password = txtSavePassword.Text;
+                flotaDTO.activo = (chkSaveActivo.Checked) ? "1" : "0";
+                flotaBusiness.saveFlotas(flotaDTO);
+                Response.Redirect("FrmMantenimientoFlota.aspx");
+                mpeAdd.Hide();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: '{0}'", ex);
+            }
+            finally
+            {
+                getFlotas();
+            }
+        }
+
+        protected void btnCancelSave_Click(object sender, EventArgs e)
+        {
+            // clearData(panelEdit);
         }
 
         void clearData(Panel p)

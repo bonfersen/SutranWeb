@@ -14,6 +14,8 @@ namespace EntitiesLayer
 {
     public partial class viewReporteDynafleet
     {
+        private Nullable<double> combustibleAcumuladoAux;
+
         public int idVehiDetalle { get; set; }
         public string usuario { get; set; }
         public string nombreFlota { get; set; }
@@ -27,6 +29,15 @@ namespace EntitiesLayer
         public Nullable<decimal> porcentajeCombustible { get; set; }
         public Nullable<long> combustibleAcumulado { get; set; }
         public Nullable<long> odometro { get; set; }
+        public Nullable<double> combustibleAcumuladoFormat
+        {
+            get
+            {
+                combustibleAcumuladoAux = combustibleAcumulado * (0.00264172);
+                return combustibleAcumuladoAux;
+            }
+            set { combustibleAcumuladoAux = value; }
+        }
     }
-    
+
 }

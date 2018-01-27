@@ -149,9 +149,9 @@
     <Content Include="Content\themes\metroblue\images\ui-icons_ffffff_0.png" />
     <Content Include="Content\themes\metroblue\jquery-ui.css" />
     <Content Include="Content\themes\metroblue\jtablesite.js" />
-    <Content Include="FrmAgregarFlota.aspx" />
     <Content Include="FrmMantenimientoFlota.aspx" />
     <Content Include="FrmReporteFlota.aspx" />
+    <Content Include="images\edit.png" />
     <Content Include="Scripts\i18n\jquery-ui-timepicker-addon-i18n.js" />
     <Content Include="Scripts\i18n\jquery-ui-timepicker-addon-i18n.min.js" />
     <Content Include="Scripts\i18n\jquery-ui-timepicker-af.js" />
@@ -198,9 +198,11 @@
     <Content Include="Scripts\i18n\jquery-ui-timepicker-vi.js" />
     <Content Include="Scripts\i18n\jquery-ui-timepicker-zh-CN.js" />
     <Content Include="Scripts\i18n\jquery-ui-timepicker-zh-TW.js" />
-    <Content Include="Scripts\jquery-1.9.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-3.0.0-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.0.0.js" />
+    <Content Include="Scripts\jquery-3.0.0.min.js" />
+    <Content Include="Scripts\jquery-3.0.0.slim.js" />
+    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
     <Content Include="Scripts\jquery-ui-1.9.2.js" />
     <Content Include="Scripts\jquery-ui-1.9.2.min.js" />
     <Content Include="Scripts\jquery-ui-sliderAccess.js" />
@@ -339,13 +341,6 @@
     <Compile Include="FrmReporteFlota.aspx.designer.cs">
       <DependentUpon>FrmReporteFlota.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FrmAgregarFlota.aspx.cs">
-      <DependentUpon>FrmAgregarFlota.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FrmAgregarFlota.aspx.designer.cs">
-      <DependentUpon>FrmAgregarFlota.aspx</DependentUpon>
-    </Compile>
     <Compile Include="FrmMantenimientoFlota.aspx.cs">
       <DependentUpon>FrmMantenimientoFlota.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -377,7 +372,8 @@
     <Content Include="Configuration\unity.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Scripts\jquery-1.9.1.min.map" />
+    <None Include="Scripts\jquery-3.0.0.min.map" />
+    <None Include="Scripts\jquery-3.0.0.slim.min.map" />
     <None Include="Scripts\jtable\themes\basic\jtable_basic.less" />
     <None Include="Scripts\jtable\themes\jqueryui\jtable_jqueryui.less" />
     <None Include="Scripts\jtable\themes\jtable_theme_base.less" />
@@ -399,9 +395,7 @@
     <None Include="Scripts\jtable\themes\metro\purple\jtable.less" />
     <None Include="Scripts\jtable\themes\metro\red\jtable.less" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="images\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

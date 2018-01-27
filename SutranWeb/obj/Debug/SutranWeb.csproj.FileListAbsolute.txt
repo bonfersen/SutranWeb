@@ -1,4 +1,3 @@
-C:\Users\windows7\Documents\Visual Studio 2010\Projects\SutranWeb\SutranWeb\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\windows7\Documents\Visual Studio 2010\Projects\SutranWeb\SutranWeb\bin\SutranWeb.dll
 C:\Users\windows7\Documents\Visual Studio 2010\Projects\SutranWeb\SutranWeb\bin\SutranWeb.pdb
 C:\Users\windows7\Documents\Visual Studio 2010\Projects\SutranWeb\SutranWeb\bin\BusinessLayer.dll
@@ -26,5 +25,6 @@ C:\Users\windows7\Documents\Visual Studio 2010\Projects\SutranWeb\SutranWeb\bin\
 C:\Users\windows7\Documents\Visual Studio 2010\Projects\SutranWeb\SutranWeb\bin\AutoMapper.xml
 C:\Users\windows7\Documents\Visual Studio 2010\Projects\SutranWeb\SutranWeb\bin\EntityFramework.xml
 C:\Users\windows7\Documents\Visual Studio 2010\Projects\SutranWeb\SutranWeb\bin\System.Runtime.xml
+C:\Users\windows7\Documents\Visual Studio 2010\Projects\SutranWeb\SutranWeb\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\windows7\Documents\Visual Studio 2010\Projects\SutranWeb\SutranWeb\obj\Debug\SutranWeb.dll
 C:\Users\windows7\Documents\Visual Studio 2010\Projects\SutranWeb\SutranWeb\obj\Debug\SutranWeb.pdb
