@@ -36,6 +36,9 @@ namespace SutranWeb
                     throw new Exception("Se debe ingresar la fecha de inicio");
                 if (!string.IsNullOrEmpty(txtFechaEventoInicial) && string.IsNullOrEmpty(txtFechaEventoFinal))
                     throw new Exception("Se debe ingresar la fecha final");
+                if (string.IsNullOrEmpty(txtFechaEventoInicial) && string.IsNullOrEmpty(txtFechaEventoFinal) && 
+                    string.IsNullOrEmpty(txtVin))
+                    throw new Exception("Se debe ingresar un criterio de busqueda");
                 
                 // Consulta de vista reportes
                 Dictionary<string, object> reporteDictionary = viewBusiness.GetViewSutranReportEvent(txtFechaEventoInicial, 

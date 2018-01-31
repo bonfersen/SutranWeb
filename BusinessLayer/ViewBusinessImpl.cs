@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -22,16 +23,16 @@ namespace BusinessLayer
 
             if (string.IsNullOrEmpty(jtSorting) || jtSorting.Equals("fechaRegistroGPS ASC"))
             {
-                reporteOrderBy = reporteIQ => reporteIQ.OrderBy(reporte => reporte.usuario);
+                reporteOrderBy = reporteIQ => reporteIQ.OrderBy(reporte => reporte.fechaRegistroGPS);
             }
             else if (jtSorting.Equals("fechaRegistroGPS DESC"))
             {
-                reporteOrderBy = reporteIQ => reporteIQ.OrderByDescending(reporte => reporte.usuario);
+                reporteOrderBy = reporteIQ => reporteIQ.OrderByDescending(reporte => reporte.fechaRegistroGPS);
             }
             else
             {
                 // Default
-                reporteOrderBy = reporteIQ => reporteIQ.OrderBy(reporte => reporte.vin); 
+                reporteOrderBy = reporteIQ => reporteIQ.OrderBy(reporte => reporte.fechaRegistroGPS); 
             }
 
             // Preparar la expresion para filtrar la data de acuerdo los filtros seleccionados
@@ -41,21 +42,22 @@ namespace BusinessLayer
                 reporteFilter = reporteIQ => reporteIQ.vin == txtVin;
             if (!string.IsNullOrEmpty(txtFechaEventoInicial) && !string.IsNullOrEmpty(txtFechaEventoFinal))
             {
-                txtFechaEventoInicial = txtFechaEventoInicial + ":00";
-                DateTime dtFechaEventoInicial = Convert.ToDateTime(txtFechaEventoInicial);
+                IFormatProvider culture = new CultureInfo("en-US", true); // por defecto
+                txtFechaEventoInicial = txtFechaEventoInicial + ":00";                
+                DateTime dtFechaEventoInicial = DateTime.ParseExact(txtFechaEventoInicial, "dd/MM/yyyy HH:mm:ss", culture);
                 txtFechaEventoFinal = txtFechaEventoFinal + ":59";
-                DateTime dtFechaEventoFinal = Convert.ToDateTime(txtFechaEventoFinal);
+                DateTime dtFechaEventoFinal = DateTime.ParseExact(txtFechaEventoFinal, "dd/MM/yyyy HH:mm:ss", culture);
                 if (string.IsNullOrEmpty(txtVin))
                     reporteFilter = reporteIQ => reporteIQ.fechaRegistroGPS >= dtFechaEventoInicial && reporteIQ.fechaRegistroGPS <= dtFechaEventoFinal;
                 else
                     reporteFilter = reporteIQ => reporteIQ.fechaRegistroGPS >= dtFechaEventoInicial && reporteIQ.fechaRegistroGPS <= dtFechaEventoFinal && reporteIQ.vin == txtVin;
             }
 
-            // Obtener la consulta paginada desde BD
+            // Obtener la consulta paginada y ordenada desde BD
             List<viewReporteDynafleet> lstViewReporteDynafleetPaginado = reporteEventoDAO.GetViewSutranReportEvent(jtStartIndex, jtPageSize, filter: reporteFilter, orderBy: reporteOrderBy);
 
             // Obtener la cantidad de registros de la consulta sin paginacion
-            lstViewReporteDynafleetSinPaginar = reporteEventoDAO.GetViewSutranReportEvent(0, 0, filter: reporteFilter, orderBy: reporteOrderBy);
+            lstViewReporteDynafleetSinPaginar = reporteEventoDAO.GetViewSutranReportEvent(0, 0, filter: reporteFilter);
             int reportCount = lstViewReporteDynafleetSinPaginar.Count;
 
             //Return result to jTable
