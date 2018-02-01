@@ -45,6 +45,11 @@
       <SubType>
       </SubType>
     </Compile>
+    <Compile Include="Gen_tb_Horometro.cs">
+      <DependentUpon>SUTRANEntities.tt</DependentUpon>
+      <SubType>
+      </SubType>
+    </Compile>
     <Compile Include="Gen_tb_Vehiculo.cs">
       <DependentUpon>SUTRANEntities.tt</DependentUpon>
       <SubType>
@@ -62,6 +67,11 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="viewReporteDynafleet.cs">
+      <DependentUpon>SUTRANEntities.tt</DependentUpon>
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="viewReporteHorometro.cs">
       <DependentUpon>SUTRANEntities.tt</DependentUpon>
       <SubType>
       </SubType>

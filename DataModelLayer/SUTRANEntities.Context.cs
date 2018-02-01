@@ -29,5 +29,7 @@ namespace EntitiesLayer
         public DbSet<Gen_tb_Vehiculo> Gen_tb_Vehiculo { get; set; }
         public DbSet<Gen_tb_VehiculoDetalle> Gen_tb_VehiculoDetalle { get; set; }
         public DbSet<viewReporteDynafleet> viewReporteDynafleet { get; set; }
+        public DbSet<Gen_tb_Horometro> Gen_tb_Horometro { get; set; }
+        public DbSet<viewReporteHorometro> viewReporteHorometro { get; set; }
     }
 }

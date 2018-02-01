@@ -9,5 +9,7 @@ namespace BusinessLayer
     public interface IViewBusiness
     {
         Dictionary<string, object> GetViewSutranReportEvent(string txtFechaEventoInicial, string txtFechaEventoFinal, string txtVin, int jtStartIndex, int jtPageSize, string jtSorting);
+
+        Dictionary<string, object> GetViewSutranReportHourmeter(string txtFechaInicio, string txtFechaFin, string txtVin, int jtStartIndex, int jtPageSize, string jtSorting);
     }
 }

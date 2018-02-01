@@ -58,6 +58,7 @@
     <Compile Include="IGenericEntityRepositoryService.cs" />
     <Compile Include="IGenericViewRepository.cs" />
     <Compile Include="IGenTbFlotaDAOService.cs" />
+    <Compile Include="IViewReporteHourmeterSutranService.cs" />
     <Compile Include="IViewReporteSutranService.cs" />
     <Compile Include="ModelSutran.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -70,6 +71,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SUTRANEntities.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewReporteHourmeterSutranImpl.cs" />
     <Compile Include="ViewReporteSutranImpl.cs" />
   </ItemGroup>
   <ItemGroup>

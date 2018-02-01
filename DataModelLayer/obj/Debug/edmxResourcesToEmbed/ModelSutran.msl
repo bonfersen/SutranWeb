@@ -4,6 +4,8 @@
     <EntitySetMapping Name="Gen_tb_Flota">
       <EntityTypeMapping TypeName="SUTRANModel.Gen_tb_Flota">
         <MappingFragment StoreEntitySet="Gen_tb_Flota">
+          <ScalarProperty Name="A" ColumnName="A" />
+          <ScalarProperty Name="Ruc" ColumnName="Ruc" />
           <ScalarProperty Name="idFlota" ColumnName="idFlota" />
           <ScalarProperty Name="nombreFlota" ColumnName="nombreFlota" />
           <ScalarProperty Name="usuario" ColumnName="usuario" />
@@ -58,6 +60,32 @@
           <ScalarProperty Name="nombreFlota" ColumnName="nombreFlota" />
           <ScalarProperty Name="usuario" ColumnName="usuario" />
           <ScalarProperty Name="idVehiDetalle" ColumnName="idVehiDetalle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_tb_Horometro">
+      <EntityTypeMapping TypeName="SUTRANModel.Gen_tb_Horometro">
+        <MappingFragment StoreEntitySet="Gen_tb_Horometro">
+          <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="horometro" ColumnName="horometro" />
+          <ScalarProperty Name="idHorometro" ColumnName="idHorometro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="viewReporteHorometro">
+      <EntityTypeMapping TypeName="SUTRANModel.viewReporteHorometro">
+        <MappingFragment StoreEntitySet="viewReporteHorometro">
+          <ScalarProperty Name="horometro" ColumnName="horometro" />
+          <ScalarProperty Name="fechaFinFormato" ColumnName="fechaFinFormato" />
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+          <ScalarProperty Name="fechaInicioFormato" ColumnName="fechaInicioFormato" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="vin" ColumnName="vin" />
+          <ScalarProperty Name="nombreFlota" ColumnName="nombreFlota" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="idHorometro" ColumnName="idHorometro" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

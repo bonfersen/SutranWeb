@@ -1,11 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmReporteFlota.aspx.cs"
-    Inherits="SutranWeb.FrmReporteFlota" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmReporteHorometro.aspx.cs" Inherits="SutranWeb.FrmReporteHorometro" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>Reporte de Eventos</title>
+    <title>Reporte de Horometros</title>
     <link href="/Content/Site.css" rel="stylesheet" type="text/css" />
     <!-- JQuery UI -->
     <link href="/Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />
@@ -34,13 +33,13 @@
 
             //Prepare jtable plugin
             $('#StudentTableContainer').jtable({
-                title: 'Reporte de Eventos Sutran',
+                title: 'Reporte Horometros Sutran',
                 paging: true,
                 pageSize: 30,
                 sorting: true,
-                defaultSorting: 'fechaRegistroGPS DESC',
+                defaultSorting: 'fechaInicio DESC',
                 actions: {
-                    listAction: '/FrmReporteFlota.aspx/ReporteEventoByFilter'
+                    listAction: '/FrmReporteHorometro.aspx/ReporteHorometroByFilter'
                 },
                 toolbar: {
                     hoverAnimation: true,
@@ -51,18 +50,13 @@
                         icon: '/images/excel.png',
                         text: 'Exportar a Excel',
                         click: function () {
-                            $('input[id$=hdntextbox]').val(Math.random()).change();                            
+                            $('input[id$=hdntextbox]').val(Math.random()).change();
                         }
                     }]
                 },
                 fields: {
-                    usuario: {
-                        title: 'Usuario',
-                        sorting: false,
-                        width: '15%'
-                    },
                     nombreFlota: {
-                        title: 'Nombre Flota',
+                        title: 'Cliente',
                         sorting: false,
                         width: '10%'
                     },
@@ -71,49 +65,26 @@
                         sorting: false,
                         width: '8%'
                     },
-                    evento: {
-                        title: 'Evento',
-                        width: '8%',
-                        sorting: false,
-                        options: { 'ER': 'ER', 'EX': 'EX', 'PA': 'PA' }
-                    },
-                    fechaRegistroGPS: {
-                        title: 'fechaRegistroGPS',
+                    fechaInicio: {
+                        title: 'fechaInicio',
                         list: false
                     },
-                    fechaRegistroGPSFormato: {
-                        title: 'Fecha Evento',
+                    fechaInicioFormato: {
+                        title: 'Fecha Inicio',
                         width: '10%'
 
                     },
-                    velocidad: {
-                        title: 'Velocidad',
-                        sorting: false,
-                        width: '10%'
-
+                    fechaFin: {
+                        title: 'fechaInicio',
+                        list: false
                     },
-                    latitud: {
-                        title: 'Latitud',
-                        sorting: false,
-                        width: '10%'
-                    },
-                    longitud: {
-                        title: 'Longitud',
+                    fechaFinFormato: {
+                        title: 'Fecha Fin',
                         sorting: false,
                         width: '10%'
                     },
-                    porcentajeCombustible: {
-                        title: '% Combus.',
-                        sorting: false,
-                        width: '8%'
-                    },
-                    combustibleAcumuladoFormat: {
-                        title: 'Combus. Acum.',
-                        sorting: false,
-                        width: '10%'
-                    },
-                    odometro: {
-                        title: 'Odometro',
+                    horometro: {
+                        title: 'Horometro',
                         sorting: false,
                         width: '10%'
                     }
@@ -121,11 +92,11 @@
             });
 
             // Add datepickers to filter input
-            $('#txtFechaEventoInicial').datetimepicker({
+            $('#txtFechaInicio').datetimepicker({
                 dateFormat: 'dd/mm/yy',
                 timeFormat: 'HH:mm'
             });
-            $('#txtFechaEventoFinal').datetimepicker({
+            $('#txtFechaFin').datetimepicker({
                 dateFormat: 'dd/mm/yy',
                 timeFormat: 'HH:mm'
             });
@@ -134,8 +105,8 @@
             $('#LoadRecordsButton').click(function (e) {
                 e.preventDefault();
                 $('#StudentTableContainer').jtable('load', {
-                    txtFechaEventoInicial: $('#txtFechaEventoInicial').val(),
-                    txtFechaEventoFinal: $('#txtFechaEventoFinal').val(),
+                    txtFechaInicio: $('#txtFechaInicio').val(),
+                    txtFechaFin: $('#txtFechaFin').val(),
                     txtVin: $('#txtVin').val()
                 });
             });
@@ -152,14 +123,14 @@
                     Fecha Evento Inicial:
                 </th>
                 <td>
-                    <input type="text" name="txtFechaEventoInicial" id="txtFechaEventoInicial" />
+                    <input type="text" name="txtFechaInicio" id="txtFechaInicio" />
                 </td>
                 <td>&nbsp;&nbsp;&nbsp;</td>
                 <th>
                     Fecha Evento Final:
                 </th>
                 <td>
-                    <input type="text" name="txtFechaEventoFinal" id="txtFechaEventoFinal" />
+                    <input type="text" name="txtFechaFin" id="txtFechaFin" />
                 </td>
             </tr>
             <tr>

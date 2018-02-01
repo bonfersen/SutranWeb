@@ -17,6 +17,7 @@ namespace EntitiesLayer
         public Gen_tb_Vehiculo()
         {
             this.Gen_tb_VehiculoDetalle = new HashSet<Gen_tb_VehiculoDetalle>();
+            this.Gen_tb_Horometro = new HashSet<Gen_tb_Horometro>();
         }
     
         public int idVehiculo { get; set; }
@@ -28,6 +29,7 @@ namespace EntitiesLayer
     
         public virtual Gen_tb_Flota Gen_tb_Flota { get; set; }
         public virtual ICollection<Gen_tb_VehiculoDetalle> Gen_tb_VehiculoDetalle { get; set; }
+        public virtual ICollection<Gen_tb_Horometro> Gen_tb_Horometro { get; set; }
     }
     
 }

@@ -13,6 +13,12 @@
       <End Role="Gen_tb_VehiculoDetalle" EntitySet="Gen_tb_VehiculoDetalle" />
     </AssociationSet>
     <EntitySet Name="viewReporteDynafleet" EntityType="SUTRANModel.viewReporteDynafleet" />
+    <EntitySet Name="Gen_tb_Horometro" EntityType="SUTRANModel.Gen_tb_Horometro" />
+    <AssociationSet Name="FK_Gen_tb_Horometro_Gen_tb_Vehiculo" Association="SUTRANModel.FK_Gen_tb_Horometro_Gen_tb_Vehiculo">
+      <End Role="Gen_tb_Vehiculo" EntitySet="Gen_tb_Vehiculo" />
+      <End Role="Gen_tb_Horometro" EntitySet="Gen_tb_Horometro" />
+    </AssociationSet>
+    <EntitySet Name="viewReporteHorometro" EntityType="SUTRANModel.viewReporteHorometro" />
   </EntityContainer>
   <EntityType Name="Gen_tb_Flota">
     <Key>
@@ -24,6 +30,8 @@
     <Property Name="password" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
     <Property Name="activo" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
     <NavigationProperty Name="Gen_tb_Vehiculo" Relationship="SUTRANModel.FK_Gen_tb_Vehiculo_Gen_tb_Flota" FromRole="Gen_tb_Flota" ToRole="Gen_tb_Vehiculo" />
+    <Property Type="String" Name="Ruc" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="A" />
   </EntityType>
   <EntityType Name="Gen_tb_Vehiculo">
     <Key>
@@ -37,6 +45,7 @@
     <Property Name="vin" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Gen_tb_Flota" Relationship="SUTRANModel.FK_Gen_tb_Vehiculo_Gen_tb_Flota" FromRole="Gen_tb_Vehiculo" ToRole="Gen_tb_Flota" />
     <NavigationProperty Name="Gen_tb_VehiculoDetalle" Relationship="SUTRANModel.FK_Gen_tb_VehiculoDetalle_Gen_tb_Vehiculo" FromRole="Gen_tb_Vehiculo" ToRole="Gen_tb_VehiculoDetalle" />
+    <NavigationProperty Name="Gen_tb_Horometro" Relationship="SUTRANModel.FK_Gen_tb_Horometro_Gen_tb_Vehiculo" FromRole="Gen_tb_Vehiculo" ToRole="Gen_tb_Horometro" />
   </EntityType>
   <EntityType Name="Gen_tb_VehiculoDetalle">
     <Key>
@@ -98,5 +107,43 @@
     <Property Type="Decimal" Name="porcentajeCombustible" Precision="4" Scale="1" />
     <Property Type="Int64" Name="combustibleAcumulado" />
     <Property Type="Int64" Name="odometro" />
+  </EntityType>
+  <EntityType Name="Gen_tb_Horometro">
+    <Key>
+      <PropertyRef Name="idHorometro" />
+    </Key>
+    <Property Type="Int32" Name="idHorometro" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="horometro" />
+    <Property Type="DateTime" Name="fechaInicio" />
+    <Property Type="DateTime" Name="fechaFin" />
+    <Property Type="Int32" Name="idVehiculo" Nullable="false" />
+    <NavigationProperty Name="Gen_tb_Vehiculo" Relationship="SUTRANModel.FK_Gen_tb_Horometro_Gen_tb_Vehiculo" FromRole="Gen_tb_Horometro" ToRole="Gen_tb_Vehiculo" />
+  </EntityType>
+  <Association Name="FK_Gen_tb_Horometro_Gen_tb_Vehiculo">
+    <End Type="SUTRANModel.Gen_tb_Vehiculo" Role="Gen_tb_Vehiculo" Multiplicity="1" />
+    <End Type="SUTRANModel.Gen_tb_Horometro" Role="Gen_tb_Horometro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gen_tb_Vehiculo">
+        <PropertyRef Name="idVehiculo" />
+      </Principal>
+      <Dependent Role="Gen_tb_Horometro">
+        <PropertyRef Name="idVehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="viewReporteHorometro">
+    <Key>
+      <PropertyRef Name="idHorometro" />
+      <PropertyRef Name="nombreFlota" />
+    </Key>
+    <Property Type="Int32" Name="idHorometro" Nullable="false" />
+    <Property Type="String" Name="usuario" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="nombreFlota" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vin" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="fechaInicio" />
+    <Property Type="String" Name="fechaInicioFormato" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="fechaFin" />
+    <Property Type="String" Name="fechaFinFormato" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="horometro" />
   </EntityType>
 </Schema>

@@ -12,8 +12,6 @@ namespace BusinessLayer
 {
     public class ViewBusinessImpl : IViewBusiness
     {
-        public List<viewReporteDynafleet> lstViewReporteDynafleetSinPaginar;
-
         public Dictionary<string, object> GetViewSutranReportEvent(string txtFechaEventoInicial, string txtFechaEventoFinal, string txtVin, int jtStartIndex, int jtPageSize, string jtSorting)
         {
             ViewReporteSutranImpl reporteEventoDAO = new ViewReporteSutranImpl();
@@ -57,7 +55,7 @@ namespace BusinessLayer
             List<viewReporteDynafleet> lstViewReporteDynafleetPaginado = reporteEventoDAO.GetViewSutranReportEvent(jtStartIndex, jtPageSize, filter: reporteFilter, orderBy: reporteOrderBy);
 
             // Obtener la cantidad de registros de la consulta sin paginacion
-            lstViewReporteDynafleetSinPaginar = reporteEventoDAO.GetViewSutranReportEvent(0, 0, filter: reporteFilter);
+            List<viewReporteDynafleet> lstViewReporteDynafleetSinPaginar = reporteEventoDAO.GetViewSutranReportEvent(0, 0, filter: reporteFilter);
             int reportCount = lstViewReporteDynafleetSinPaginar.Count;
 
             //Return result to jTable
@@ -65,6 +63,62 @@ namespace BusinessLayer
             reporteDictionary.Add("Result" , "OK");
             reporteDictionary.Add("Records", lstViewReporteDynafleetPaginado);
             reporteDictionary.Add("TotalRecordCount" , reportCount);
+            reporteDictionary.Add("RecordsSinPaginar", lstViewReporteDynafleetSinPaginar);
+
+            return reporteDictionary;
+        }
+
+        public Dictionary<string, object> GetViewSutranReportHourmeter(string txtFechaInicio, string txtFechaFin, string txtVin, int jtStartIndex, int jtPageSize, string jtSorting)
+        {
+            ViewReporteHourmeterSutranImpl reporteHourmeterDAO = new ViewReporteHourmeterSutranImpl();
+
+            // Preparar la expresion para ordenar la data de acuerdo al campo solicitado
+            Func<IQueryable<viewReporteHorometro>, IOrderedQueryable<viewReporteHorometro>> reporteOrderBy = null;
+
+            if (string.IsNullOrEmpty(jtSorting) || jtSorting.Equals("fechaInicio ASC"))
+            {
+                reporteOrderBy = reporteIQ => reporteIQ.OrderBy(reporte => reporte.fechaInicio);
+            }
+            else if (jtSorting.Equals("fechaInicio DESC"))
+            {
+                reporteOrderBy = reporteIQ => reporteIQ.OrderByDescending(reporte => reporte.fechaInicio);
+            }
+            else
+            {
+                // Default
+                reporteOrderBy = reporteIQ => reporteIQ.OrderBy(reporte => reporte.fechaInicio);
+            }
+
+            // Preparar la expresion para filtrar la data de acuerdo los filtros seleccionados
+            Expression<Func<viewReporteHorometro, bool>> reporteFilter = null;
+
+            if (!string.IsNullOrEmpty(txtVin))
+                reporteFilter = reporteIQ => reporteIQ.vin == txtVin;
+            if (!string.IsNullOrEmpty(txtFechaInicio) && !string.IsNullOrEmpty(txtFechaFin))
+            {
+                IFormatProvider culture = new CultureInfo("en-US", true); // por defecto
+                txtFechaInicio = txtFechaInicio + ":00";
+                DateTime dtFechaInicio = DateTime.ParseExact(txtFechaInicio, "dd/MM/yyyy HH:mm:ss", culture);
+                txtFechaFin = txtFechaFin + ":59";
+                DateTime dtFechaFin = DateTime.ParseExact(txtFechaFin, "dd/MM/yyyy HH:mm:ss", culture);
+                if (string.IsNullOrEmpty(txtVin))
+                    reporteFilter = reporteIQ => reporteIQ.fechaInicio >= dtFechaInicio && reporteIQ.fechaFin <= dtFechaFin;
+                else
+                    reporteFilter = reporteIQ => reporteIQ.fechaInicio >= dtFechaInicio && reporteIQ.fechaFin <= dtFechaFin && reporteIQ.vin == txtVin;
+            }
+
+            // Obtener la consulta paginada y ordenada desde BD
+            List<viewReporteHorometro> lstViewReporteDynafleetPaginado = reporteHourmeterDAO.GetViewSutranReportEvent(jtStartIndex, jtPageSize, filter: reporteFilter, orderBy: reporteOrderBy);
+
+            // Obtener la cantidad de registros de la consulta sin paginacion
+            List<viewReporteHorometro> lstViewReporteDynafleetSinPaginar = reporteHourmeterDAO.GetViewSutranReportEvent(0, 0, filter: reporteFilter);
+            int reportCount = lstViewReporteDynafleetSinPaginar.Count;
+
+            //Return result to jTable
+            Dictionary<string, object> reporteDictionary = new Dictionary<string, object>();
+            reporteDictionary.Add("Result", "OK");
+            reporteDictionary.Add("Records", lstViewReporteDynafleetPaginado);
+            reporteDictionary.Add("TotalRecordCount", reportCount);
             reporteDictionary.Add("RecordsSinPaginar", lstViewReporteDynafleetSinPaginar);
 
             return reporteDictionary;

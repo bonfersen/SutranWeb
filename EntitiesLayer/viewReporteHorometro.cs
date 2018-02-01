@@ -12,22 +12,17 @@ using System.Collections.Generic;
 
 namespace EntitiesLayer
 {
-    public partial class Gen_tb_Flota
+    public partial class viewReporteHorometro
     {
-        public Gen_tb_Flota()
-        {
-            this.Gen_tb_Vehiculo = new HashSet<Gen_tb_Vehiculo>();
-        }
-    
-        public int idFlota { get; set; }
-        public string nombreFlota { get; set; }
+        public int idHorometro { get; set; }
         public string usuario { get; set; }
-        public string password { get; set; }
-        public string activo { get; set; }
-        public string Ruc { get; set; }
-        public Nullable<int> A { get; set; }
-    
-        public virtual ICollection<Gen_tb_Vehiculo> Gen_tb_Vehiculo { get; set; }
+        public string nombreFlota { get; set; }
+        public string vin { get; set; }
+        public Nullable<System.DateTime> fechaInicio { get; set; }
+        public string fechaInicioFormato { get; set; }
+        public Nullable<System.DateTime> fechaFin { get; set; }
+        public string fechaFinFormato { get; set; }
+        public Nullable<long> horometro { get; set; }
     }
     
 }

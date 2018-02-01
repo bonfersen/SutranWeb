@@ -2,6 +2,7 @@
 <Schema Namespace="SUTRANModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="SUTRANModelStoreContainer">
     <EntitySet Name="Gen_tb_Flota" EntityType="SUTRANModel.Store.Gen_tb_Flota" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Gen_tb_Horometro" EntityType="SUTRANModel.Store.Gen_tb_Horometro" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Gen_tb_Vehiculo" EntityType="SUTRANModel.Store.Gen_tb_Vehiculo" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Gen_tb_VehiculoDetalle" EntityType="SUTRANModel.Store.Gen_tb_VehiculoDetalle" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="viewReporteDynafleet" EntityType="SUTRANModel.Store.viewReporteDynafleet" store:Type="Views" store:Schema="dbo" store:Name="viewReporteDynafleet">
@@ -21,6 +22,23 @@
       [viewReporteDynafleet].[odometro] AS [odometro]
       FROM [dbo].[viewReporteDynafleet] AS [viewReporteDynafleet]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="viewReporteHorometro" EntityType="SUTRANModel.Store.viewReporteHorometro" store:Type="Views" store:Schema="dbo" store:Name="viewReporteHorometro">
+      <DefiningQuery>SELECT 
+      [viewReporteHorometro].[idHorometro] AS [idHorometro], 
+      [viewReporteHorometro].[usuario] AS [usuario], 
+      [viewReporteHorometro].[nombreFlota] AS [nombreFlota], 
+      [viewReporteHorometro].[vin] AS [vin], 
+      [viewReporteHorometro].[fechaInicio] AS [fechaInicio], 
+      [viewReporteHorometro].[fechaInicioFormato] AS [fechaInicioFormato], 
+      [viewReporteHorometro].[fechaFin] AS [fechaFin], 
+      [viewReporteHorometro].[fechaFinFormato] AS [fechaFinFormato], 
+      [viewReporteHorometro].[horometro] AS [horometro]
+      FROM [dbo].[viewReporteHorometro] AS [viewReporteHorometro]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Gen_tb_Horometro_Gen_tb_Vehiculo" Association="SUTRANModel.Store.FK_Gen_tb_Horometro_Gen_tb_Vehiculo">
+      <End Role="Gen_tb_Vehiculo" EntitySet="Gen_tb_Vehiculo" />
+      <End Role="Gen_tb_Horometro" EntitySet="Gen_tb_Horometro" />
+    </AssociationSet>
     <AssociationSet Name="FK_Gen_tb_Vehiculo_Gen_tb_Flota" Association="SUTRANModel.Store.FK_Gen_tb_Vehiculo_Gen_tb_Flota">
       <End Role="Gen_tb_Flota" EntitySet="Gen_tb_Flota" />
       <End Role="Gen_tb_Vehiculo" EntitySet="Gen_tb_Vehiculo" />
@@ -39,6 +57,18 @@
     <Property Name="usuario" Type="varchar" MaxLength="30" />
     <Property Name="password" Type="varchar" MaxLength="30" />
     <Property Name="activo" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Ruc" Type="varchar" MaxLength="50" />
+    <Property Name="A" Type="int" />
+  </EntityType>
+  <EntityType Name="Gen_tb_Horometro">
+    <Key>
+      <PropertyRef Name="idHorometro" />
+    </Key>
+    <Property Name="idHorometro" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="horometro" Type="bigint" />
+    <Property Name="fechaInicio" Type="datetime" />
+    <Property Name="fechaFin" Type="datetime" />
+    <Property Name="idVehiculo" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Gen_tb_Vehiculo">
     <Key>
@@ -64,12 +94,12 @@
     <Property Name="fechaRegistroGPS" Type="datetime" />
     <Property Name="idVehiculo" Type="int" Nullable="false" />
     <Property Name="estaTransmitido" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="porcentajeCombustible" Type="decimal" Precision="4" Scale="1" />
     <Property Name="combustibleAcumulado" Type="bigint" />
     <Property Name="odometro" Type="bigint" />
-    <Property Name="porcentajeCombustible" Type="decimal" Precision="4" Scale="1" />
   </EntityType>
   <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'SUTRAN.dbo.viewReporteDynafleet' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      advertencia 6002: La tabla o vista 'SUTRANPROD.dbo.viewReporteDynafleet' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
   <EntityType Name="viewReporteDynafleet">
     <Key>
@@ -90,6 +120,36 @@
     <Property Name="combustibleAcumulado" Type="bigint" />
     <Property Name="odometro" Type="bigint" />
   </EntityType>
+  <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'SUTRANPROD.dbo.viewReporteHorometro' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+  <EntityType Name="viewReporteHorometro">
+    <Key>
+      <PropertyRef Name="idHorometro" />
+      <PropertyRef Name="nombreFlota" />
+    </Key>
+    <Property Name="idHorometro" Type="int" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="30" />
+    <Property Name="nombreFlota" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="vin" Type="varchar" MaxLength="30" />
+    <Property Name="fechaInicio" Type="datetime" />
+    <Property Name="fechaInicioFormato" Type="nvarchar" />
+    <Property Name="fechaFin" Type="datetime" />
+    <Property Name="fechaFinFormato" Type="nvarchar" />
+    <Property Name="horometro" Type="bigint" />
+  </EntityType>
+  <Association Name="FK_Gen_tb_Horometro_Gen_tb_Vehiculo">
+    <End Role="Gen_tb_Vehiculo" Type="SUTRANModel.Store.Gen_tb_Vehiculo" Multiplicity="1" />
+    <End Role="Gen_tb_Horometro" Type="SUTRANModel.Store.Gen_tb_Horometro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gen_tb_Vehiculo">
+        <PropertyRef Name="idVehiculo" />
+      </Principal>
+      <Dependent Role="Gen_tb_Horometro">
+        <PropertyRef Name="idVehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Gen_tb_Vehiculo_Gen_tb_Flota">
     <End Role="Gen_tb_Flota" Type="SUTRANModel.Store.Gen_tb_Flota" Multiplicity="1" />
     <End Role="Gen_tb_Vehiculo" Type="SUTRANModel.Store.Gen_tb_Vehiculo" Multiplicity="*" />

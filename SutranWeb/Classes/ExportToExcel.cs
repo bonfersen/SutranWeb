@@ -151,7 +151,7 @@ namespace SutranWeb.Classes
                 stream.Close();
                 Response.BinaryWrite(data1);
                 Response.Flush();
-                Response.End();
+                Response.Close();
 
                 return true;
             }
