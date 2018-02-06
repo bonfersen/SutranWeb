@@ -150,7 +150,7 @@
     <Content Include="Content\themes\metroblue\jquery-ui.css" />
     <Content Include="Content\themes\metroblue\jtablesite.js" />
     <Content Include="FrmMantenimientoFlota.aspx" />
-    <Content Include="FrmReporteFlota.aspx" />
+    <Content Include="FrmReporteEvento.aspx" />
     <Content Include="FrmReporteHorometro.aspx" />
     <Content Include="images\edit.png" />
     <Content Include="Scripts\i18n\jquery-ui-timepicker-addon-i18n.js" />
@@ -335,12 +335,12 @@
   <ItemGroup>
     <Compile Include="Classes\ExportToExcel.cs" />
     <Compile Include="Classes\SutranWebConstants.cs" />
-    <Compile Include="FrmReporteFlota.aspx.cs">
-      <DependentUpon>FrmReporteFlota.aspx</DependentUpon>
+    <Compile Include="FrmReporteEvento.aspx.cs">
+      <DependentUpon>FrmReporteEvento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FrmReporteFlota.aspx.designer.cs">
-      <DependentUpon>FrmReporteFlota.aspx</DependentUpon>
+    <Compile Include="FrmReporteEvento.aspx.designer.cs">
+      <DependentUpon>FrmReporteEvento.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmMantenimientoFlota.aspx.cs">
       <DependentUpon>FrmMantenimientoFlota.aspx</DependentUpon>

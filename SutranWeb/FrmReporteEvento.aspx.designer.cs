@@ -10,7 +10,7 @@
 namespace SutranWeb {
     
     
-    public partial class FrmReporteFlota {
+    public partial class FrmReporteEvento {
         
         /// <summary>
         /// Control Head1.

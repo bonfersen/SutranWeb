@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmReporteFlota.aspx.cs"
-    Inherits="SutranWeb.FrmReporteFlota" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmReporteEvento.aspx.cs"
+    Inherits="SutranWeb.FrmReporteEvento" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -40,7 +40,7 @@
                 sorting: true,
                 defaultSorting: 'fechaRegistroGPS DESC',
                 actions: {
-                    listAction: '/FrmReporteFlota.aspx/ReporteEventoByFilter'
+                    listAction: '/FrmReporteEvento.aspx/ReporteEventoByFilter'
                 },
                 toolbar: {
                     hoverAnimation: true,

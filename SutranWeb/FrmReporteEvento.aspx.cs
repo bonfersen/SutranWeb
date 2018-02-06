@@ -12,7 +12,7 @@ using SutranWeb.Classes;
 
 namespace SutranWeb
 {
-    public partial class FrmReporteFlota : System.Web.UI.Page
+    public partial class FrmReporteEvento : System.Web.UI.Page
     {
         static ViewBusinessImpl viewBusiness;
 

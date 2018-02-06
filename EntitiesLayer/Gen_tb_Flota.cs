@@ -24,8 +24,6 @@ namespace EntitiesLayer
         public string usuario { get; set; }
         public string password { get; set; }
         public string activo { get; set; }
-        public string Ruc { get; set; }
-        public Nullable<int> A { get; set; }
     
         public virtual ICollection<Gen_tb_Vehiculo> Gen_tb_Vehiculo { get; set; }
     }

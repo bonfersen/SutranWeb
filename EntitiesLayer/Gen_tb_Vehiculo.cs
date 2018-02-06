@@ -27,9 +27,9 @@ namespace EntitiesLayer
         public Nullable<long> idVehiculoApi { get; set; }
         public string vin { get; set; }
     
-        public virtual Gen_tb_Flota Gen_tb_Flota { get; set; }
         public virtual ICollection<Gen_tb_VehiculoDetalle> Gen_tb_VehiculoDetalle { get; set; }
         public virtual ICollection<Gen_tb_Horometro> Gen_tb_Horometro { get; set; }
+        public virtual Gen_tb_Flota Gen_tb_Flota { get; set; }
     }
     
 }

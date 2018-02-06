@@ -1,19 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="SUTRANModelStoreContainer" CdmEntityContainer="SUTRANEntities">
-    <EntitySetMapping Name="Gen_tb_Flota">
-      <EntityTypeMapping TypeName="SUTRANModel.Gen_tb_Flota">
-        <MappingFragment StoreEntitySet="Gen_tb_Flota">
-          <ScalarProperty Name="A" ColumnName="A" />
-          <ScalarProperty Name="Ruc" ColumnName="Ruc" />
-          <ScalarProperty Name="idFlota" ColumnName="idFlota" />
-          <ScalarProperty Name="nombreFlota" ColumnName="nombreFlota" />
-          <ScalarProperty Name="usuario" ColumnName="usuario" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="activo" ColumnName="activo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Gen_tb_Vehiculo">
       <EntityTypeMapping TypeName="SUTRANModel.Gen_tb_Vehiculo">
         <MappingFragment StoreEntitySet="Gen_tb_Vehiculo">
@@ -86,6 +73,17 @@
           <ScalarProperty Name="nombreFlota" ColumnName="nombreFlota" />
           <ScalarProperty Name="usuario" ColumnName="usuario" />
           <ScalarProperty Name="idHorometro" ColumnName="idHorometro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_tb_Flota">
+      <EntityTypeMapping TypeName="SUTRANModel.Gen_tb_Flota">
+        <MappingFragment StoreEntitySet="Gen_tb_Flota">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="nombreFlota" ColumnName="nombreFlota" />
+          <ScalarProperty Name="idFlota" ColumnName="idFlota" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

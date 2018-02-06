@@ -57,8 +57,6 @@
     <Property Name="usuario" Type="varchar" MaxLength="30" />
     <Property Name="password" Type="varchar" MaxLength="30" />
     <Property Name="activo" Type="char" Nullable="false" MaxLength="1" />
-    <Property Name="Ruc" Type="varchar" MaxLength="50" />
-    <Property Name="A" Type="int" />
   </EntityType>
   <EntityType Name="Gen_tb_Horometro">
     <Key>
@@ -94,12 +92,12 @@
     <Property Name="fechaRegistroGPS" Type="datetime" />
     <Property Name="idVehiculo" Type="int" Nullable="false" />
     <Property Name="estaTransmitido" Type="varchar" Nullable="false" MaxLength="15" />
-    <Property Name="porcentajeCombustible" Type="decimal" Precision="4" Scale="1" />
     <Property Name="combustibleAcumulado" Type="bigint" />
     <Property Name="odometro" Type="bigint" />
+    <Property Name="porcentajeCombustible" Type="decimal" Precision="4" Scale="1" />
   </EntityType>
   <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'SUTRANPROD.dbo.viewReporteDynafleet' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      advertencia 6002: La tabla o vista 'SUTRAN.dbo.viewReporteDynafleet' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
   <EntityType Name="viewReporteDynafleet">
     <Key>
@@ -121,7 +119,7 @@
     <Property Name="odometro" Type="bigint" />
   </EntityType>
   <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'SUTRANPROD.dbo.viewReporteHorometro' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      advertencia 6002: La tabla o vista 'SUTRAN.dbo.viewReporteHorometro' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
   <EntityType Name="viewReporteHorometro">
     <Key>
