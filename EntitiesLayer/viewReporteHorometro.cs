@@ -14,6 +14,8 @@ namespace EntitiesLayer
 {
     public partial class viewReporteHorometro
     {
+        public Nullable<long> horometroAux;
+
         public int idHorometro { get; set; }
         public string usuario { get; set; }
         public string nombreFlota { get; set; }
@@ -23,6 +25,15 @@ namespace EntitiesLayer
         public Nullable<System.DateTime> fechaFin { get; set; }
         public string fechaFinFormato { get; set; }
         public Nullable<long> horometro { get; set; }
+
+        public Nullable<long> horometroFormat {
+            get
+            {
+                horometroAux = horometro / (3600);
+                return horometroAux;
+            }
+            set { horometroAux = value; } 
+        }
     }
     
 }

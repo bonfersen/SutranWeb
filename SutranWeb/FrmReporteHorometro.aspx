@@ -83,7 +83,7 @@
                         sorting: false,
                         width: '10%'
                     },
-                    horometro: {
+                    horometroFormat: {
                         title: 'Horometro',
                         sorting: false,
                         width: '10%'
