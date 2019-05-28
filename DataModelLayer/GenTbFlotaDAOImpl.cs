@@ -40,5 +40,10 @@ namespace DataModelLayer
         {
             genericRepository.UpdateEntity(entityToUpdate);
         }
+
+        public List<Gen_tb_Flota> OrderByDynamic(string sortColumn, bool descending)
+        {
+            return genericRepository.OrderByDynamic(sortColumn, descending);
+        }
     }
 }

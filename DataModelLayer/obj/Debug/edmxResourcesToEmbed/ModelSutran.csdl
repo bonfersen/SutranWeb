@@ -19,6 +19,16 @@
       <End Role="Gen_tb_Flota" EntitySet="Gen_tb_Flota" />
       <End Role="Gen_tb_Vehiculo" EntitySet="Gen_tb_Vehiculo" />
     </AssociationSet>
+    <EntitySet Name="Gen_tb_BusesDetalle" EntityType="SUTRANModel.Gen_tb_BusesDetalle" />
+    <EntitySet Name="Gen_tb_BusesEventos" EntityType="SUTRANModel.Gen_tb_BusesEventos" />
+    <AssociationSet Name="FK_Gen_tb_BusesDetalle_Gen_tb_Vehiculo" Association="SUTRANModel.FK_Gen_tb_BusesDetalle_Gen_tb_Vehiculo">
+      <End Role="Gen_tb_Vehiculo" EntitySet="Gen_tb_Vehiculo" />
+      <End Role="Gen_tb_BusesDetalle" EntitySet="Gen_tb_BusesDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gen_tb_BusesEventos_Gen_tb_Vehiculo" Association="SUTRANModel.FK_Gen_tb_BusesEventos_Gen_tb_Vehiculo">
+      <End Role="Gen_tb_Vehiculo" EntitySet="Gen_tb_Vehiculo" />
+      <End Role="Gen_tb_BusesEventos" EntitySet="Gen_tb_BusesEventos" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Gen_tb_Vehiculo">
     <Key>
@@ -26,13 +36,15 @@
     </Key>
     <Property Name="idVehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="placa" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
-    <Property Name="fechaRegistroApi" Type="DateTime" />
+    <Property Name="fechaRegistroApi" Type="DateTime" Precision="3" />
     <Property Name="idFlota" Type="Int32" Nullable="false" />
     <Property Name="idVehiculoApi" Type="Int64" />
     <Property Name="vin" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Gen_tb_VehiculoDetalle" Relationship="SUTRANModel.FK_Gen_tb_VehiculoDetalle_Gen_tb_Vehiculo" FromRole="Gen_tb_Vehiculo" ToRole="Gen_tb_VehiculoDetalle" />
     <NavigationProperty Name="Gen_tb_Horometro" Relationship="SUTRANModel.FK_Gen_tb_Horometro_Gen_tb_Vehiculo" FromRole="Gen_tb_Vehiculo" ToRole="Gen_tb_Horometro" />
     <NavigationProperty Name="Gen_tb_Flota" Relationship="SUTRANModel.FK_Gen_tb_Vehiculo_Gen_tb_Flota" FromRole="Gen_tb_Vehiculo" ToRole="Gen_tb_Flota" />
+    <NavigationProperty Name="Gen_tb_BusesDetalle" Relationship="SUTRANModel.FK_Gen_tb_BusesDetalle_Gen_tb_Vehiculo" FromRole="Gen_tb_Vehiculo" ToRole="Gen_tb_BusesDetalle" />
+    <NavigationProperty Name="Gen_tb_BusesEventos" Relationship="SUTRANModel.FK_Gen_tb_BusesEventos_Gen_tb_Vehiculo" FromRole="Gen_tb_Vehiculo" ToRole="Gen_tb_BusesEventos" />
   </EntityType>
   <EntityType Name="Gen_tb_VehiculoDetalle">
     <Key>
@@ -44,7 +56,7 @@
     <Property Name="rumbo" Type="Int32" />
     <Property Name="velocidad" Type="Int32" />
     <Property Name="evento" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="fechaRegistroGPS" Type="DateTime" />
+    <Property Name="fechaRegistroGPS" Type="DateTime" Precision="3" />
     <Property Name="idVehiculo" Type="Int32" Nullable="false" />
     <Property Name="estaTransmitido" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
     <Property Name="combustibleAcumulado" Type="Int64" />
@@ -74,7 +86,7 @@
     <Property Type="String" Name="nombreFlota" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="vin" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="evento" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="DateTime" Name="fechaRegistroGPS" />
+    <Property Type="DateTime" Name="fechaRegistroGPS" Precision="3" />
     <Property Type="String" Name="fechaRegistroGPSFormato" MaxLength="4000" FixedLength="false" Unicode="true" />
     <Property Type="Int32" Name="velocidad" />
     <Property Type="Decimal" Name="latitud" Precision="20" Scale="14" />
@@ -89,8 +101,8 @@
     </Key>
     <Property Type="Int32" Name="idHorometro" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="Int64" Name="horometro" />
-    <Property Type="DateTime" Name="fechaInicio" />
-    <Property Type="DateTime" Name="fechaFin" />
+    <Property Type="DateTime" Name="fechaInicio" Precision="3" />
+    <Property Type="DateTime" Name="fechaFin" Precision="3" />
     <Property Type="Int32" Name="idVehiculo" Nullable="false" />
     <NavigationProperty Name="Gen_tb_Vehiculo" Relationship="SUTRANModel.FK_Gen_tb_Horometro_Gen_tb_Vehiculo" FromRole="Gen_tb_Horometro" ToRole="Gen_tb_Vehiculo" />
   </EntityType>
@@ -115,9 +127,9 @@
     <Property Type="String" Name="usuario" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="nombreFlota" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="vin" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Type="DateTime" Name="fechaInicio" />
+    <Property Type="DateTime" Name="fechaInicio" Precision="3" />
     <Property Type="String" Name="fechaInicioFormato" MaxLength="4000" FixedLength="false" Unicode="true" />
-    <Property Type="DateTime" Name="fechaFin" />
+    <Property Type="DateTime" Name="fechaFin" Precision="3" />
     <Property Type="String" Name="fechaFinFormato" MaxLength="4000" FixedLength="false" Unicode="true" />
     <Property Type="Int64" Name="horometro" />
   </EntityType>
@@ -131,6 +143,9 @@
     <Property Type="String" Name="password" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="activo" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="Gen_tb_Vehiculo" Relationship="SUTRANModel.FK_Gen_tb_Vehiculo_Gen_tb_Flota" FromRole="Gen_tb_Flota" ToRole="Gen_tb_Vehiculo" />
+    <Property Name="Ruc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="A" Type="Int32" />
+    <Property Name="tipoFlota" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
   </EntityType>
   <Association Name="FK_Gen_tb_Vehiculo_Gen_tb_Flota">
     <End Type="SUTRANModel.Gen_tb_Flota" Role="Gen_tb_Flota" Multiplicity="1" />
@@ -141,6 +156,56 @@
       </Principal>
       <Dependent Role="Gen_tb_Vehiculo">
         <PropertyRef Name="idFlota" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Gen_tb_BusesDetalle">
+    <Key>
+      <PropertyRef Name="idBusDetalle" />
+    </Key>
+    <Property Name="idBusDetalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="latitud" Type="Decimal" Precision="20" Scale="14" />
+    <Property Name="longitud" Type="Decimal" Precision="20" Scale="14" />
+    <Property Name="rumbo" Type="Int32" />
+    <Property Name="fechaRegistroGPS" Type="DateTime" Precision="3" />
+    <Property Name="idVehiculo" Type="Int32" Nullable="false" />
+    <Property Name="estaTransmitido" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="fechaActualizacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Gen_tb_Vehiculo" Relationship="SUTRANModel.FK_Gen_tb_BusesDetalle_Gen_tb_Vehiculo" FromRole="Gen_tb_BusesDetalle" ToRole="Gen_tb_Vehiculo" />
+  </EntityType>
+  <EntityType Name="Gen_tb_BusesEventos">
+    <Key>
+      <PropertyRef Name="idBusEvento" />
+    </Key>
+    <Property Name="idBusEvento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idVehiculo" Type="Int32" />
+    <Property Name="fechaEvento" Type="DateTime" Precision="3" />
+    <Property Name="nombreEvento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="evento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="velocidad" Type="Decimal" Precision="4" Scale="2" />
+    <NavigationProperty Name="Gen_tb_Vehiculo" Relationship="SUTRANModel.FK_Gen_tb_BusesEventos_Gen_tb_Vehiculo" FromRole="Gen_tb_BusesEventos" ToRole="Gen_tb_Vehiculo" />
+  </EntityType>
+  <Association Name="FK_Gen_tb_BusesDetalle_Gen_tb_Vehiculo">
+    <End Type="SUTRANModel.Gen_tb_Vehiculo" Role="Gen_tb_Vehiculo" Multiplicity="1" />
+    <End Type="SUTRANModel.Gen_tb_BusesDetalle" Role="Gen_tb_BusesDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gen_tb_Vehiculo">
+        <PropertyRef Name="idVehiculo" />
+      </Principal>
+      <Dependent Role="Gen_tb_BusesDetalle">
+        <PropertyRef Name="idVehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gen_tb_BusesEventos_Gen_tb_Vehiculo">
+    <End Type="SUTRANModel.Gen_tb_Vehiculo" Role="Gen_tb_Vehiculo" Multiplicity="0..1" />
+    <End Type="SUTRANModel.Gen_tb_BusesEventos" Role="Gen_tb_BusesEventos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gen_tb_Vehiculo">
+        <PropertyRef Name="idVehiculo" />
+      </Principal>
+      <Dependent Role="Gen_tb_BusesEventos">
+        <PropertyRef Name="idVehiculo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

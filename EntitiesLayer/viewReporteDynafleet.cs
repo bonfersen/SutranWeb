@@ -7,15 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace EntitiesLayer
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class viewReporteDynafleet
     {
         private Nullable<double> combustibleAcumuladoAux;
-
         public int idVehiDetalle { get; set; }
         public string usuario { get; set; }
         public string nombreFlota { get; set; }
@@ -29,6 +28,7 @@ namespace EntitiesLayer
         public Nullable<decimal> porcentajeCombustible { get; set; }
         public Nullable<long> combustibleAcumulado { get; set; }
         public Nullable<long> odometro { get; set; }
+
         public Nullable<double> combustibleAcumuladoFormat
         {
             get
@@ -39,5 +39,4 @@ namespace EntitiesLayer
             set { combustibleAcumuladoAux = value; }
         }
     }
-
 }

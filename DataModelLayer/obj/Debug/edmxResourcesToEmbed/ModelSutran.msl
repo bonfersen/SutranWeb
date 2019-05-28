@@ -79,11 +79,40 @@
     <EntitySetMapping Name="Gen_tb_Flota">
       <EntityTypeMapping TypeName="SUTRANModel.Gen_tb_Flota">
         <MappingFragment StoreEntitySet="Gen_tb_Flota">
+          <ScalarProperty Name="tipoFlota" ColumnName="tipoFlota" />
+          <ScalarProperty Name="A" ColumnName="A" />
+          <ScalarProperty Name="Ruc" ColumnName="Ruc" />
           <ScalarProperty Name="activo" ColumnName="activo" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="usuario" ColumnName="usuario" />
           <ScalarProperty Name="nombreFlota" ColumnName="nombreFlota" />
           <ScalarProperty Name="idFlota" ColumnName="idFlota" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_tb_BusesDetalle">
+      <EntityTypeMapping TypeName="SUTRANModel.Gen_tb_BusesDetalle">
+        <MappingFragment StoreEntitySet="Gen_tb_BusesDetalle">
+          <ScalarProperty Name="fechaActualizacion" ColumnName="fechaActualizacion" />
+          <ScalarProperty Name="estaTransmitido" ColumnName="estaTransmitido" />
+          <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
+          <ScalarProperty Name="fechaRegistroGPS" ColumnName="fechaRegistroGPS" />
+          <ScalarProperty Name="rumbo" ColumnName="rumbo" />
+          <ScalarProperty Name="longitud" ColumnName="longitud" />
+          <ScalarProperty Name="latitud" ColumnName="latitud" />
+          <ScalarProperty Name="idBusDetalle" ColumnName="idBusDetalle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gen_tb_BusesEventos">
+      <EntityTypeMapping TypeName="SUTRANModel.Gen_tb_BusesEventos">
+        <MappingFragment StoreEntitySet="Gen_tb_BusesEventos">
+          <ScalarProperty Name="velocidad" ColumnName="velocidad" />
+          <ScalarProperty Name="evento" ColumnName="evento" />
+          <ScalarProperty Name="nombreEvento" ColumnName="nombreEvento" />
+          <ScalarProperty Name="fechaEvento" ColumnName="fechaEvento" />
+          <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
+          <ScalarProperty Name="idBusEvento" ColumnName="idBusEvento" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

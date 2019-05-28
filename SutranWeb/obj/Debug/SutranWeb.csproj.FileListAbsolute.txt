@@ -28,3 +28,38 @@ C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\SutranWeb\bin\
 C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\SutranWeb\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\SutranWeb\obj\Debug\SutranWeb.dll
 C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\SutranWeb\obj\Debug\SutranWeb.pdb
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\SutranWeb.dll
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\SutranWeb.pdb
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\BusinessLayer.dll
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\DocumentFormat.OpenXml.dll
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\DTOLayer.dll
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\EntitiesLayer.dll
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\Microsoft.Practices.ServiceLocation.dll
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\Microsoft.Practices.Unity.Configuration.dll
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\Microsoft.Practices.Unity.dll
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\Microsoft.Practices.Unity.Interception.Configuration.dll
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\Microsoft.Practices.Unity.Interception.dll
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\DataModelLayer.dll
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\AutoMapper.dll
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\EntityFramework.dll
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\System.Runtime.dll
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\BusinessLayer.pdb
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\BusinessLayer.dll.config
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\DTOLayer.pdb
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\EntitiesLayer.pdb
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\DocumentFormat.OpenXml.xml
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\Microsoft.Practices.Unity.xml
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\Microsoft.Practices.Unity.Configuration.xml
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\Microsoft.Practices.Unity.Interception.xml
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\Microsoft.Practices.Unity.Interception.Configuration.xml
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\DataModelLayer.pdb
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\DataModelLayer.dll.config
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\AutoMapper.xml
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\EntityFramework.xml
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\System.Runtime.xml
+D:\Workspace-Net\SutranWeb\SutranWeb\obj\Debug\SutranWeb.csprojAssemblyReference.cache
+D:\Workspace-Net\SutranWeb\SutranWeb\obj\Debug\SutranWeb.csproj.CoreCompileInputs.cache
+D:\Workspace-Net\SutranWeb\SutranWeb\obj\Debug\SutranWeb.csproj.CopyComplete
+D:\Workspace-Net\SutranWeb\SutranWeb\obj\Debug\SutranWeb.dll
+D:\Workspace-Net\SutranWeb\SutranWeb\obj\Debug\SutranWeb.pdb
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\EntitiesLayer.dll.config

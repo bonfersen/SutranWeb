@@ -7,15 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace EntitiesLayer
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class viewReporteHorometro
     {
         public Nullable<long> horometroAux;
-
         public int idHorometro { get; set; }
         public string usuario { get; set; }
         public string nombreFlota { get; set; }
@@ -26,14 +25,15 @@ namespace EntitiesLayer
         public string fechaFinFormato { get; set; }
         public Nullable<long> horometro { get; set; }
 
-        public Nullable<long> horometroFormat {
+        public Nullable<long> horometroFormat
+        {
             get
             {
                 horometroAux = horometro / (3600);
                 return horometroAux;
             }
-            set { horometroAux = value; } 
+            set { horometroAux = value; }
         }
     }
-    
+
 }

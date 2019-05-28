@@ -21,23 +21,62 @@
         <asp:UpdatePanel runat="server" ID="up" UpdateMode="Conditional">
             <ContentTemplate>
                 <asp:GridView ID="gridFlotas" runat="server" AutoGenerateColumns="False" Width="100%" 
-                    DataKeyNames="idFlota" AllowPaging="True" PageSize="30"
+                    DataKeyNames="idFlota" AllowPaging="True" AllowSorting="true" PageSize="30"
                     OnPageIndexChanging="gridFlotas_PageIndexChanging" OnRowDataBound="gridFlotas_RowDataBound"
                     CssClass="mydatagrid" HeaderStyle-CssClass="header" 
                     AlternatingRowStyle-CssClass="altrows" RowStyle-CssClass="rows"
-                    PagerStyle-CssClass="pager">                    
+                    PagerStyle-CssClass="pager" OnSorting="gridFlotas_Sorting">                    
                     <Columns>
-                        <asp:BoundField DataField="idFlota" HeaderText="IdFlota" />
-                        <asp:BoundField DataField="nombreFlota" HeaderText="Nombre Flota" />
+                          
+                        <asp:templatefield headertext="ID Flota" sortexpression="idFlota">
+				            <itemtemplate>
+					            <%# Eval("idFlota") %>
+				            </itemtemplate>
+				            <edititemtemplate>
+					            <asp:textbox id="txtIdFlota" runat="server" text='<%# Eval("idFlota") %>' />
+				            </edititemtemplate>
+				            <footertemplate>
+					            <asp:textbox id="txtIdFlota" runat="server" />
+				            </footertemplate>
+			            </asp:templatefield>
+
+                        <asp:templatefield headertext="Nombre Flota" sortexpression="nombreFlota">
+				            <itemtemplate>
+					            <%# Eval("nombreFlota") %>
+				            </itemtemplate>
+				            <edititemtemplate>
+					            <asp:textbox id="txtNombreFlota" runat="server" text='<%# Eval("nombreFlota") %>' />
+				            </edititemtemplate>
+				            <footertemplate>
+					            <asp:textbox id="txtNombreFlota" runat="server" />
+				            </footertemplate>
+			            </asp:templatefield>
+
+                        <asp:templatefield headertext="Tipo Flota" sortexpression="tipoFlota">
+				            <itemtemplate>
+					            <%# Eval("tipoFlota") %>
+				            </itemtemplate>
+				            <edititemtemplate>
+					            <asp:textbox id="txtTipoFlota" runat="server" text='<%# Eval("tipoFlota") %>' />
+				            </edititemtemplate>
+				            <footertemplate>
+					            <asp:textbox id="txtTipoFlota" runat="server" />
+				            </footertemplate>
+			            </asp:templatefield>
+                        
                         <asp:BoundField DataField="usuario" HeaderText="Usuario" />
+
                         <asp:BoundField DataField="password" HeaderText="Password" />
+
                         <asp:BoundField DataField="activo" HeaderText="Activo" />
+
                         <asp:TemplateField HeaderText="Edit">
                             <ItemTemplate>
-                                <asp:LinkButton ID="lnkEdit" OnClick="lnkEdit_Click" runat="server"><img src="/images/edit.png" alt="Editar" /></asp:LinkButton>
+                                <asp:LinkButton ID="lnkEdit" OnClick="lnkEdit_Click" runat="server"><img src="images/edit.png" alt="Editar" /></asp:LinkButton>
                             </ItemTemplate>
                              
                         </asp:TemplateField>
+
                     </Columns>
                     
                 </asp:GridView>
@@ -87,6 +126,20 @@
                                     <asp:TextBox ID="txtPassword" runat="server" Width="400px"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtPassword"
                                         ErrorMessage="Debe ingresar un password" ForeColor="Red" ValidationGroup="edit">*</asp:RequiredFieldValidator>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="lblEditTipoFlota" runat="server" Text="Tipo Flota: "></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:DropDownList ID="ddlTipoFlota" runat="server">
+                                        <asp:ListItem Enabled="true" Text="---- Elegir ----" Value="-1"></asp:ListItem>
+                                        <asp:ListItem Text="Camiones" Value="0"></asp:ListItem>
+                                        <asp:ListItem Text="Buses" Value="1"></asp:ListItem>
+                                    </asp:DropDownList>
+                                    <asp:RequiredFieldValidator InitialValue="-1" ID="RequiredFieldValidator7" runat="server" ControlToValidate="ddlTipoFlota"
+                                        ErrorMessage="Debe seleccionar la flota" ForeColor="Red" ValidationGroup="edit">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>

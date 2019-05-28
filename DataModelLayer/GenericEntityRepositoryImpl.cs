@@ -38,7 +38,8 @@ namespace DataModelLayer
 
             if (orderBy != null)
             {
-                return orderBy(query).ToList();
+                List<TEntity> list = orderBy(query).ToList();
+                return list;
             }
             else
             {
@@ -77,6 +78,44 @@ namespace DataModelLayer
             dbSet.Attach(entityToUpdate);
             dbContext.Entry(entityToUpdate).State = System.Data.Entity.EntityState.Modified;
             dbContext.SaveChanges();
+        }
+
+        public enum Order
+        {
+            Asc,
+            Desc
+        }
+
+        public virtual List<TEntity> OrderByDynamic(
+            string sortColumn,
+            bool descending)
+        {
+            IQueryable<TEntity> query = dbSet;
+
+            // Dynamically creates a call like this: query.OrderBy(p =&gt; p.SortColumn)
+            var parameter = Expression.Parameter(typeof(TEntity), "p");
+
+            string command = "OrderBy";
+
+            if (descending)
+            {
+                command = "OrderByDescending";
+            }
+            
+            Expression resultExpression = null;
+
+            var property = typeof(TEntity).GetProperty(sortColumn);
+            // this is the part p.SortColumn
+            var propertyAccess = Expression.MakeMemberAccess(parameter, property);
+
+            // this is the part p =&gt; p.SortColumn
+            var orderByExpression = Expression.Lambda(propertyAccess, parameter);
+
+            // finally, call the "OrderBy" / "OrderByDescending" method with the order by lamba expression
+            resultExpression = Expression.Call(typeof(Queryable), command, new Type[] { typeof(TEntity), property.PropertyType },
+               query.Expression, Expression.Quote(orderByExpression));
+
+            return query.Provider.CreateQuery<TEntity>(resultExpression).ToList();
         }
 
         public void Dispose() { return; }

@@ -7,12 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-
 namespace EntitiesLayer
 {
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    
     public partial class SUTRANEntities : DbContext
     {
         public SUTRANEntities()
@@ -31,5 +31,7 @@ namespace EntitiesLayer
         public DbSet<Gen_tb_Horometro> Gen_tb_Horometro { get; set; }
         public DbSet<viewReporteHorometro> viewReporteHorometro { get; set; }
         public DbSet<Gen_tb_Flota> Gen_tb_Flota { get; set; }
+        public DbSet<Gen_tb_BusesDetalle> Gen_tb_BusesDetalle { get; set; }
+        public DbSet<Gen_tb_BusesEventos> Gen_tb_BusesEventos { get; set; }
     }
 }

@@ -20,7 +20,9 @@ namespace DTOLayer
             get;
             set;
         }
-    
+
+        public string tipoFlota { get; set; }
+
         public virtual string usuario
         {
             get;

@@ -23,12 +23,16 @@ namespace BusinessLayer
             return flotaDTO;
         }
 
-        public List<FlotaDTO> getFlotasDTO()
+        public List<FlotaDTO> getFlotasDTO(string strSortColumn, string strSortDirection)
         {
             //Obtener lista de flotas desde BD
             GenTbFlotaDAOImpl flotaDAO = new GenTbFlotaDAOImpl();
-            List<Gen_tb_Flota> lstGenTbFlota = flotaDAO.Get(orderBy: flotaIQ => flotaIQ.OrderByDescending(flota => flota.idFlota));
-                        
+            //List<Gen_tb_Flota> lstGenTbFlota = flotaDAO.Get(orderBy: flotaIQ => flotaIQ.OrderBy(flota => flota.nombreFlota));
+
+            Boolean sortDirection = (strSortDirection == "ASC") ? false : true;
+
+            List<Gen_tb_Flota> lstGenTbFlota = flotaDAO.OrderByDynamic(strSortColumn, sortDirection);
+
             //Mapear desde Entidad a Vista
             AutoMapper.Mapper.CreateMap<Gen_tb_Flota, FlotaDTO>();
             List<FlotaDTO> lstFlotaDTO = AutoMapper.Mapper.Map<List<Gen_tb_Flota>, List<FlotaDTO>>(lstGenTbFlota);

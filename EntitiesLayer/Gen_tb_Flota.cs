@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace EntitiesLayer
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class Gen_tb_Flota
     {
         public Gen_tb_Flota()
@@ -24,8 +24,10 @@ namespace EntitiesLayer
         public string usuario { get; set; }
         public string password { get; set; }
         public string activo { get; set; }
+        public string Ruc { get; set; }
+        public Nullable<int> A { get; set; }
+        public string tipoFlota { get; set; }
     
         public virtual ICollection<Gen_tb_Vehiculo> Gen_tb_Vehiculo { get; set; }
     }
-    
 }

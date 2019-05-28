@@ -14,17 +14,25 @@ namespace SutranWeb
 
     public partial class FrmMantenimientoFlota : System.Web.UI.Page
     {
-        FlotaBusinessImpl flotaBusiness;
-
-        
+        /*
+         * Variables global viven el tiempo del request y luego de enviar el resultado al cliente se pierden
+         * a menos que sean estaticos
+         * */
+        private FlotaBusinessImpl flotaBusiness;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             flotaBusiness = (FlotaBusinessImpl)UnityLoad<IFlotaBusiness>.getUnityContainer();
-            //LLenar Datos
-            getFlotas();
+            // Valida que se ejecute la primera vez que se ingresa a la pagina
+            if (!IsPostBack)
+            {
+                //LLenar Datos
+                SortColumn = "nombreFlota";
+                SortDirection = "ASC";
+                getFlotas();
+            }
         }
-        
+
         protected void gridFlotas_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -32,11 +40,19 @@ namespace SutranWeb
                 FlotaDTO flotaDTO = (FlotaDTO)e.Row.DataItem;
                 if (flotaDTO.activo == "1")
                 {
-                    e.Row.Cells[4].Text = "Si";
+                    e.Row.Cells[5].Text = "Si";
                 }
                 else
                 {
-                    e.Row.Cells[4].Text = "No";
+                    e.Row.Cells[5].Text = "No";
+                }
+                if (flotaDTO.tipoFlota == "1")
+                {
+                    e.Row.Cells[2].Text = "Buses";
+                }
+                else
+                {
+                    e.Row.Cells[2].Text = "Camiones";
                 }
             }
         }
@@ -70,6 +86,7 @@ namespace SutranWeb
                 txtCliente.Text = flotaDTO.nombreFlota;
                 txtUsuario.Text = flotaDTO.usuario;
                 txtPassword.Text = flotaDTO.password;
+                ddlTipoFlota.SelectedIndex = (flotaDTO.tipoFlota == "0") ? 1 : 2;
                 chkActivo.Checked = (flotaDTO.activo == "1") ? true : false;
                 mpeEdit.Show();
             }
@@ -85,7 +102,7 @@ namespace SutranWeb
 
         private void getFlotas()
         {
-            gridFlotas.DataSource = flotaBusiness.getFlotasDTO();
+            gridFlotas.DataSource = flotaBusiness.getFlotasDTO(SortColumn, SortDirection);
             gridFlotas.DataBind();
         }
 
@@ -158,5 +175,31 @@ namespace SutranWeb
             mpeEdit.Hide();
         }
 
+        protected void gridFlotas_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            SortColumn = e.SortExpression;
+            // Si viene ASC del ViewState se cambia a DESC y viceversa
+            SortDirection = (SortDirection == "ASC") ? "DESC" : "ASC";
+
+            getFlotas();
+        }
+
+        /*
+         * Se obtiene el nombre de la columna ordenada desde el ViewState (objeto que viaja al cliente por cada Request)
+         **/
+        public string SortColumn
+        {
+            get { return Convert.ToString(ViewState["SortColumn"]); }
+            set { ViewState["SortColumn"] = value; }
+        }
+
+        /*
+         * Se obtiene el orden de la columna desde el ViewState
+         **/
+        public string SortDirection
+        {
+            get { return Convert.ToString(ViewState["SortDirection"]); }
+            set { ViewState["SortDirection"] = value; }
+        }
     }
 }

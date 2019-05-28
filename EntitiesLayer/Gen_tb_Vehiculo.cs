@@ -7,17 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace EntitiesLayer
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class Gen_tb_Vehiculo
     {
         public Gen_tb_Vehiculo()
         {
             this.Gen_tb_VehiculoDetalle = new HashSet<Gen_tb_VehiculoDetalle>();
             this.Gen_tb_Horometro = new HashSet<Gen_tb_Horometro>();
+            this.Gen_tb_BusesDetalle = new HashSet<Gen_tb_BusesDetalle>();
+            this.Gen_tb_BusesEventos = new HashSet<Gen_tb_BusesEventos>();
         }
     
         public int idVehiculo { get; set; }
@@ -30,6 +32,7 @@ namespace EntitiesLayer
         public virtual ICollection<Gen_tb_VehiculoDetalle> Gen_tb_VehiculoDetalle { get; set; }
         public virtual ICollection<Gen_tb_Horometro> Gen_tb_Horometro { get; set; }
         public virtual Gen_tb_Flota Gen_tb_Flota { get; set; }
+        public virtual ICollection<Gen_tb_BusesDetalle> Gen_tb_BusesDetalle { get; set; }
+        public virtual ICollection<Gen_tb_BusesEventos> Gen_tb_BusesEventos { get; set; }
     }
-    
 }

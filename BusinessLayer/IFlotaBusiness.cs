@@ -9,7 +9,7 @@ namespace BusinessLayer
 {
     public interface IFlotaBusiness
     {
-        List<FlotaDTO> getFlotasDTO();
+        List<FlotaDTO> getFlotasDTO(string strSortColumn, string strSortDirection);
         void saveFlotas(FlotaDTO flotaDTO);
         FlotaDTO GetByID(int id);
         void UpdateEntity(FlotaDTO flotaDTO);

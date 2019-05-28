@@ -11,3 +11,18 @@ C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DataModelLayer
 C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DataModelLayer\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DataModelLayer\obj\Debug\DataModelLayer.dll
 C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DataModelLayer\obj\Debug\DataModelLayer.pdb
+D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\DataModelLayer.dll.config
+D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\DataModelLayer.dll
+D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\DataModelLayer.pdb
+D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\EntitiesLayer.dll
+D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\EntityFramework.dll
+D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\EntitiesLayer.pdb
+D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\EntityFramework.xml
+D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Workspace-Net\SutranWeb\DataModelLayer\obj\Debug\DataModelLayer.csprojAssemblyReference.cache
+D:\Workspace-Net\SutranWeb\DataModelLayer\obj\Debug\DataModelLayer.csproj.CoreCompileInputs.cache
+D:\Workspace-Net\SutranWeb\DataModelLayer\obj\Debug\DataModelLayer.csproj.CopyComplete
+D:\Workspace-Net\SutranWeb\DataModelLayer\obj\Debug\DataModelLayer.dll
+D:\Workspace-Net\SutranWeb\DataModelLayer\obj\Debug\DataModelLayer.pdb
+D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\EntitiesLayer.dll.config

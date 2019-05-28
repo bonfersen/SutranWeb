@@ -24,3 +24,32 @@ C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\BusinessLayer\
 C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\BusinessLayer\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\BusinessLayer\obj\Debug\BusinessLayer.dll
 C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\BusinessLayer\obj\Debug\BusinessLayer.pdb
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\BusinessLayer.dll.config
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\BusinessLayer.dll
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\BusinessLayer.pdb
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\AutoMapper.dll
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\DataModelLayer.dll
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\DTOLayer.dll
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\EntitiesLayer.dll
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\EntityFramework.dll
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\System.IO.dll
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\System.Runtime.dll
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\System.Threading.Tasks.dll
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\DataModelLayer.pdb
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\DataModelLayer.dll.config
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\DTOLayer.pdb
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\EntitiesLayer.pdb
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\AutoMapper.xml
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\EntityFramework.xml
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\System.IO.xml
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\System.Runtime.xml
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\System.Threading.Tasks.xml
+D:\Workspace-Net\SutranWeb\BusinessLayer\obj\Debug\BusinessLayer.csproj.App.config
+D:\Workspace-Net\SutranWeb\BusinessLayer\obj\Debug\BusinessLayer.csprojAssemblyReference.cache
+D:\Workspace-Net\SutranWeb\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+D:\Workspace-Net\SutranWeb\BusinessLayer\obj\Debug\BusinessLayer.csproj.CopyComplete
+D:\Workspace-Net\SutranWeb\BusinessLayer\obj\Debug\BusinessLayer.dll
+D:\Workspace-Net\SutranWeb\BusinessLayer\obj\Debug\BusinessLayer.pdb
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\EntitiesLayer.dll.config

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace EntitiesLayer
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class Gen_tb_VehiculoDetalle
     {
         public int idVehiDetalle { get; set; }
@@ -29,5 +29,4 @@ namespace EntitiesLayer
     
         public virtual Gen_tb_Vehiculo Gen_tb_Vehiculo { get; set; }
     }
-    
 }

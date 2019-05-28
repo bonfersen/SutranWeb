@@ -17,6 +17,6 @@ namespace DataModelLayer
         void UpdateEntity(TEntity entityToUpdate);
         void DeleteById(object id);
         void DeleteEntity(TEntity entityToDelete);
-        
+        List<TEntity> OrderByDynamic(string sortColumn, bool descending);
     }
 }
