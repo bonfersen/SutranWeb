@@ -136,7 +136,9 @@
                 $('#StudentTableContainer').jtable('load', {
                     txtFechaEventoInicial: $('#txtFechaEventoInicial').val(),
                     txtFechaEventoFinal: $('#txtFechaEventoFinal').val(),
-                    txtVin: $('#txtVin').val()
+                    txtVin: $('#txtVin').val(),
+                    txtNombreFlota: $('#txtNombreFlota').val(),
+                    checkUltimoEvento: $('#checkUltimoEvento').prop("checked")
                 });
             });
         });
@@ -168,6 +170,21 @@
                 </th>                
                 <td>
                     <input type="text" name="txtVin" id="txtVin" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <th align="left">
+                    Nombre Flota:
+                </th>                
+                <td>
+                    <input type="text" name="txtNombreFlota" id="txtNombreFlota" />
+                </td>
+            </tr>
+            <tr>
+                <th align="left">
+                    Mostrar &uacute;ltimo Evento:
+                </th>                
+                <td>
+                    <input type="checkbox" checked="checked" name="checkUltimoEvento" id="checkUltimoEvento" value="1"/>
                 </td>
             </tr>
         </table>

@@ -12,10 +12,14 @@ namespace BusinessLayer
 {
     public class ViewBusinessImpl : IViewBusiness
     {
-        public Dictionary<string, object> GetViewSutranReportEvent(string txtFechaEventoInicial, string txtFechaEventoFinal, string txtVin, int jtStartIndex, int jtPageSize, string jtSorting)
+        public Dictionary<string, object> GetViewSutranReportEvent(string txtFechaEventoInicial, string txtFechaEventoFinal, string txtVin, string txtNombreFlota,
+                                    Boolean checkUltimoEvento, int jtStartIndex, int jtPageSize, string jtSorting)
         {
             ViewReporteSutranImpl reporteEventoDAO = new ViewReporteSutranImpl();
-                        
+            Boolean existeFechas = false;
+            DateTime dtFechaEventoInicial = new DateTime();
+            DateTime dtFechaEventoFinal = new DateTime();
+
             // Preparar la expresion para ordenar la data de acuerdo al campo solicitado
             Func<IQueryable<viewReporteDynafleet>, IOrderedQueryable<viewReporteDynafleet>> reporteOrderBy = null;
 
@@ -32,30 +36,42 @@ namespace BusinessLayer
                 // Default
                 reporteOrderBy = reporteIQ => reporteIQ.OrderBy(reporte => reporte.fechaRegistroGPS); 
             }
-
+            
             // Preparar la expresion para filtrar la data de acuerdo los filtros seleccionados
             Expression<Func<viewReporteDynafleet, bool>> reporteFilter = null;
                         
-            if (!string.IsNullOrEmpty(txtVin))
-                reporteFilter = reporteIQ => reporteIQ.vin == txtVin;
             if (!string.IsNullOrEmpty(txtFechaEventoInicial) && !string.IsNullOrEmpty(txtFechaEventoFinal))
             {
                 IFormatProvider culture = new CultureInfo("en-US", true); // por defecto
                 txtFechaEventoInicial = txtFechaEventoInicial + ":00";                
-                DateTime dtFechaEventoInicial = DateTime.ParseExact(txtFechaEventoInicial, "dd/MM/yyyy HH:mm:ss", culture);
+                dtFechaEventoInicial = DateTime.ParseExact(txtFechaEventoInicial, "dd/MM/yyyy HH:mm:ss", culture);
                 txtFechaEventoFinal = txtFechaEventoFinal + ":59";
-                DateTime dtFechaEventoFinal = DateTime.ParseExact(txtFechaEventoFinal, "dd/MM/yyyy HH:mm:ss", culture);
-                if (string.IsNullOrEmpty(txtVin))
-                    reporteFilter = reporteIQ => reporteIQ.fechaRegistroGPS >= dtFechaEventoInicial && reporteIQ.fechaRegistroGPS <= dtFechaEventoFinal;
-                else
-                    reporteFilter = reporteIQ => reporteIQ.fechaRegistroGPS >= dtFechaEventoInicial && reporteIQ.fechaRegistroGPS <= dtFechaEventoFinal && reporteIQ.vin == txtVin;
+                dtFechaEventoFinal = DateTime.ParseExact(txtFechaEventoFinal, "dd/MM/yyyy HH:mm:ss", culture);
+                existeFechas = true;               
             }
 
+            if (existeFechas)
+                if (!string.IsNullOrEmpty(txtNombreFlota) && !string.IsNullOrEmpty(txtVin))
+                    reporteFilter = reporteIQ => reporteIQ.fechaRegistroGPS >= dtFechaEventoInicial && reporteIQ.fechaRegistroGPS <= dtFechaEventoFinal
+                        && reporteIQ.nombreFlota == txtNombreFlota && reporteIQ.vin == txtVin;
+                else if (!string.IsNullOrEmpty(txtNombreFlota))
+                    reporteFilter = reporteIQ => reporteIQ.fechaRegistroGPS >= dtFechaEventoInicial && reporteIQ.fechaRegistroGPS <= dtFechaEventoFinal
+                        && reporteIQ.nombreFlota == txtNombreFlota;
+                else if (!string.IsNullOrEmpty(txtVin))
+                    reporteFilter = reporteIQ => reporteIQ.fechaRegistroGPS >= dtFechaEventoInicial && reporteIQ.fechaRegistroGPS <= dtFechaEventoFinal
+                        && reporteIQ.vin == txtVin;
+                else
+                    reporteFilter = reporteIQ => reporteIQ.fechaRegistroGPS >= dtFechaEventoInicial && reporteIQ.fechaRegistroGPS <= dtFechaEventoFinal;
+            else
+                reporteFilter = reporteIQ => (string.IsNullOrEmpty(txtNombreFlota) || reporteIQ.nombreFlota == txtNombreFlota) &&
+                             (string.IsNullOrEmpty(txtVin) || reporteIQ.vin == txtVin);
+
             // Obtener la consulta paginada y ordenada desde BD
-            List<viewReporteDynafleet> lstViewReporteDynafleetPaginado = reporteEventoDAO.GetViewSutranReportEvent(jtStartIndex, jtPageSize, filter: reporteFilter, orderBy: reporteOrderBy);
+            List<viewReporteDynafleet> lstViewReporteDynafleetPaginado = reporteEventoDAO.GetViewSutranReportEvent(jtStartIndex, jtPageSize,
+                                                        checkUltimoEvento, filter: reporteFilter, orderBy: reporteOrderBy);
 
             // Obtener la cantidad de registros de la consulta sin paginacion
-            List<viewReporteDynafleet> lstViewReporteDynafleetSinPaginar = reporteEventoDAO.GetViewSutranReportEvent(0, 0, filter: reporteFilter);
+            List<viewReporteDynafleet> lstViewReporteDynafleetSinPaginar = reporteEventoDAO.GetViewSutranReportEvent(0, 0, checkUltimoEvento, filter: reporteFilter);
             int reportCount = lstViewReporteDynafleetSinPaginar.Count;
 
             //Return result to jTable
@@ -108,10 +124,10 @@ namespace BusinessLayer
             }
 
             // Obtener la consulta paginada y ordenada desde BD
-            List<viewReporteHorometro> lstViewReporteDynafleetPaginado = reporteHourmeterDAO.GetViewSutranReportEvent(jtStartIndex, jtPageSize, filter: reporteFilter, orderBy: reporteOrderBy);
+            List<viewReporteHorometro> lstViewReporteDynafleetPaginado = reporteHourmeterDAO.GetViewSutranReportEvent(jtStartIndex, jtPageSize, false, filter: reporteFilter, orderBy: reporteOrderBy);
 
             // Obtener la cantidad de registros de la consulta sin paginacion
-            List<viewReporteHorometro> lstViewReporteDynafleetSinPaginar = reporteHourmeterDAO.GetViewSutranReportEvent(0, 0, filter: reporteFilter);
+            List<viewReporteHorometro> lstViewReporteDynafleetSinPaginar = reporteHourmeterDAO.GetViewSutranReportEvent(0, 0, false, filter: reporteFilter);
             int reportCount = lstViewReporteDynafleetSinPaginar.Count;
 
             //Return result to jTable

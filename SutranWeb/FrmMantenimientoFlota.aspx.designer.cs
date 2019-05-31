@@ -112,13 +112,13 @@ namespace SutranWeb {
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
         
         /// <summary>
-        /// txtIdFlota control.
+        /// txtEditIdFlota control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdFlota;
+        protected global::System.Web.UI.WebControls.TextBox txtEditIdFlota;
         
         /// <summary>
         /// lblCliente control.
@@ -130,13 +130,13 @@ namespace SutranWeb {
         protected global::System.Web.UI.WebControls.Label lblCliente;
         
         /// <summary>
-        /// txtCliente control.
+        /// txtEditCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCliente;
+        protected global::System.Web.UI.WebControls.TextBox txtEditCliente;
         
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -157,13 +157,13 @@ namespace SutranWeb {
         protected global::System.Web.UI.WebControls.Label lblUsuario;
         
         /// <summary>
-        /// txtUsuario control.
+        /// txtEditUsuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsuario;
+        protected global::System.Web.UI.WebControls.TextBox txtEditUsuario;
         
         /// <summary>
         /// RequiredFieldValidator2 control.
@@ -184,13 +184,13 @@ namespace SutranWeb {
         protected global::System.Web.UI.WebControls.Label lblPassword;
         
         /// <summary>
-        /// txtPassword control.
+        /// txtEditPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtEditPassword;
         
         /// <summary>
         /// RequiredFieldValidator3 control.
@@ -211,13 +211,13 @@ namespace SutranWeb {
         protected global::System.Web.UI.WebControls.Label lblEditTipoFlota;
         
         /// <summary>
-        /// ddlTipoFlota control.
+        /// ddlEditTipoFlota control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoFlota;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEditTipoFlota;
         
         /// <summary>
         /// RequiredFieldValidator7 control.
@@ -238,13 +238,13 @@ namespace SutranWeb {
         protected global::System.Web.UI.WebControls.Label lblActivo;
         
         /// <summary>
-        /// chkActivo control.
+        /// chkEditActivo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkActivo;
+        protected global::System.Web.UI.WebControls.CheckBox chkEditActivo;
         
         /// <summary>
         /// btnUpdate control.
@@ -389,6 +389,33 @@ namespace SutranWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+        
+        /// <summary>
+        /// Label5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
+        
+        /// <summary>
+        /// ddlSaveTipoFlota control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSaveTipoFlota;
+        
+        /// <summary>
+        /// RequiredFieldValidator8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
         
         /// <summary>
         /// Label4 control.

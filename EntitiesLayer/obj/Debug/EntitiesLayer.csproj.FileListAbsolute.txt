@@ -8,8 +8,8 @@ D:\Workspace-Net\SutranWeb\EntitiesLayer\bin\Debug\EntitiesLayer.dll
 D:\Workspace-Net\SutranWeb\EntitiesLayer\bin\Debug\EntitiesLayer.pdb
 D:\Workspace-Net\SutranWeb\EntitiesLayer\bin\Debug\EntityFramework.dll
 D:\Workspace-Net\SutranWeb\EntitiesLayer\bin\Debug\EntityFramework.xml
+D:\Workspace-Net\SutranWeb\EntitiesLayer\obj\Debug\EntitiesLayer.csprojAssemblyReference.cache
 D:\Workspace-Net\SutranWeb\EntitiesLayer\obj\Debug\EntitiesLayer.csproj.CoreCompileInputs.cache
 D:\Workspace-Net\SutranWeb\EntitiesLayer\obj\Debug\EntitiesLayer.csproj.CopyComplete
 D:\Workspace-Net\SutranWeb\EntitiesLayer\obj\Debug\EntitiesLayer.dll
 D:\Workspace-Net\SutranWeb\EntitiesLayer\obj\Debug\EntitiesLayer.pdb
-D:\Workspace-Net\SutranWeb\EntitiesLayer\obj\Debug\EntitiesLayer.csprojAssemblyReference.cache

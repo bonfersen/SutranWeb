@@ -11,9 +11,10 @@ namespace DataModelLayer
     {
         private GenericViewRepositoryImpl<viewReporteDynafleet> genericViewRepository = new GenericViewRepositoryImpl<viewReporteDynafleet>(new SUTRANEntities());
 
-        public List<viewReporteDynafleet> GetViewSutranReportEvent(int startIndex, int count, System.Linq.Expressions.Expression<Func<EntitiesLayer.viewReporteDynafleet, bool>> filter = null, Func<IQueryable<EntitiesLayer.viewReporteDynafleet>, IOrderedQueryable<EntitiesLayer.viewReporteDynafleet>> orderBy = null)
+        public List<viewReporteDynafleet> GetViewSutranReportEvent(int startIndex, int count, Boolean checkUltimoEvento,
+                    System.Linq.Expressions.Expression<Func<EntitiesLayer.viewReporteDynafleet, bool>> filter = null, Func<IQueryable<EntitiesLayer.viewReporteDynafleet>, IOrderedQueryable<EntitiesLayer.viewReporteDynafleet>> orderBy = null)
         {
-            return genericViewRepository.GetViewSutranReportEvent(startIndex, count, filter, orderBy);
+            return genericViewRepository.GetViewSutranReportEvent(startIndex, count, checkUltimoEvento, filter, orderBy);
         }
     }
 }

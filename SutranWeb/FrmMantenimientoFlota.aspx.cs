@@ -15,11 +15,14 @@ namespace SutranWeb
     public partial class FrmMantenimientoFlota : System.Web.UI.Page
     {
         /*
-         * Variables global viven el tiempo del request y luego de enviar el resultado al cliente se pierden
+         * Variables globales envian el resultado al cliente y luego se reinician
          * a menos que sean estaticos
          * */
         private FlotaBusinessImpl flotaBusiness;
 
+        /*
+         * Ante cualquier evento siempre se ejecuta este metodo
+         * */
         protected void Page_Load(object sender, EventArgs e)
         {
             flotaBusiness = (FlotaBusinessImpl)UnityLoad<IFlotaBusiness>.getUnityContainer();
@@ -39,34 +42,26 @@ namespace SutranWeb
             {
                 FlotaDTO flotaDTO = (FlotaDTO)e.Row.DataItem;
                 if (flotaDTO.activo == "1")
-                {
                     e.Row.Cells[5].Text = "Si";
-                }
                 else
-                {
                     e.Row.Cells[5].Text = "No";
-                }
-                if (flotaDTO.tipoFlota == "1")
-                {
-                    e.Row.Cells[2].Text = "Buses";
-                }
-                else
-                {
-                    e.Row.Cells[2].Text = "Camiones";
-                }
+                if (flotaDTO.tipoFlota != null)
+                    if (flotaDTO.tipoFlota == "1")
+                       e.Row.Cells[2].Text = "Buses";
+                    else
+                        e.Row.Cells[2].Text = "Camiones";
             }
         }
 
         protected void gridFlotas_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             this.gridFlotas.PageIndex = e.NewPageIndex;
-            //LLenar Datos
+            //LLenar Datos inmediatamente despues del evento
             getFlotas();
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("FrmAgregarFlota.aspx");
             mpeAdd.Show();
         }
 
@@ -82,12 +77,12 @@ namespace SutranWeb
                 //Se obtiene la flota a actualizar
                 FlotaDTO flotaDTO = flotaBusiness.GetByID(Int32.Parse(idFlota));
 
-                txtIdFlota.Text = (flotaDTO.idFlota).ToString();
-                txtCliente.Text = flotaDTO.nombreFlota;
-                txtUsuario.Text = flotaDTO.usuario;
-                txtPassword.Text = flotaDTO.password;
-                ddlTipoFlota.SelectedIndex = (flotaDTO.tipoFlota == "0") ? 1 : 2;
-                chkActivo.Checked = (flotaDTO.activo == "1") ? true : false;
+                txtEditIdFlota.Text = (flotaDTO.idFlota).ToString();
+                txtEditCliente.Text = flotaDTO.nombreFlota;
+                txtEditUsuario.Text = flotaDTO.usuario;
+                txtEditPassword.Text = flotaDTO.password;
+                ddlEditTipoFlota.SelectedIndex = (flotaDTO.tipoFlota == "0") ? 1 : 2;
+                chkEditActivo.Checked = (flotaDTO.activo == "1") ? true : false;
                 mpeEdit.Show();
             }
             catch (Exception ex)
@@ -96,7 +91,8 @@ namespace SutranWeb
             }
             finally
             {
-
+                //sin esto no pinta tipo flotas lo mismo en el agregar y cancelar de ambos metodos
+                //getFlotas(); 
             }
         }
 
@@ -111,11 +107,12 @@ namespace SutranWeb
             try
             {
                 FlotaDTO flotaDTO = new FlotaDTO();
-                flotaDTO.idFlota = Int32.Parse(txtIdFlota.Text);
-                flotaDTO.nombreFlota = txtCliente.Text;
-                flotaDTO.usuario = txtUsuario.Text;
-                flotaDTO.password = txtPassword.Text;
-                flotaDTO.activo = (chkActivo.Checked) ? "1" : "0";
+                flotaDTO.idFlota = Int32.Parse(txtEditIdFlota.Text);
+                flotaDTO.nombreFlota = txtEditCliente.Text;
+                flotaDTO.usuario = txtEditUsuario.Text;
+                flotaDTO.password = txtEditPassword.Text;
+                flotaDTO.tipoFlota = ddlEditTipoFlota.SelectedValue;
+                flotaDTO.activo = (chkEditActivo.Checked) ? "1" : "0";
                 flotaBusiness.UpdateEntity(flotaDTO);
                 mpeEdit.Hide();
             }
@@ -142,6 +139,7 @@ namespace SutranWeb
                 flotaDTO.nombreFlota = txtSaveCliente.Text;
                 flotaDTO.usuario = txtSaveUsuario.Text;
                 flotaDTO.password = txtSavePassword.Text;
+                flotaDTO.tipoFlota = ddlSaveTipoFlota.SelectedValue;
                 flotaDTO.activo = (chkSaveActivo.Checked) ? "1" : "0";
                 flotaBusiness.saveFlotas(flotaDTO);
                 Response.Redirect("FrmMantenimientoFlota.aspx");

@@ -40,6 +40,7 @@ D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\DataModelLayer.pdb
 D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\DataModelLayer.dll.config
 D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\DTOLayer.pdb
 D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\EntitiesLayer.pdb
+D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\EntitiesLayer.dll.config
 D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\AutoMapper.xml
 D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\EntityFramework.xml
 D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
@@ -52,4 +53,3 @@ D:\Workspace-Net\SutranWeb\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreComp
 D:\Workspace-Net\SutranWeb\BusinessLayer\obj\Debug\BusinessLayer.csproj.CopyComplete
 D:\Workspace-Net\SutranWeb\BusinessLayer\obj\Debug\BusinessLayer.dll
 D:\Workspace-Net\SutranWeb\BusinessLayer\obj\Debug\BusinessLayer.pdb
-D:\Workspace-Net\SutranWeb\BusinessLayer\bin\Debug\EntitiesLayer.dll.config

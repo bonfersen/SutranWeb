@@ -10,7 +10,7 @@ C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DTOLayer\obj\D
 C:\Users\windows7\documents\visual studio 2010\Projects\SutranWeb\DTOLayer\obj\Debug\DTOLayer.pdb
 D:\Workspace-Net\SutranWeb\DTOLayer\bin\Debug\DTOLayer.dll
 D:\Workspace-Net\SutranWeb\DTOLayer\bin\Debug\DTOLayer.pdb
+D:\Workspace-Net\SutranWeb\DTOLayer\obj\Debug\DTOLayer.csprojAssemblyReference.cache
 D:\Workspace-Net\SutranWeb\DTOLayer\obj\Debug\DTOLayer.csproj.CoreCompileInputs.cache
 D:\Workspace-Net\SutranWeb\DTOLayer\obj\Debug\DTOLayer.dll
 D:\Workspace-Net\SutranWeb\DTOLayer\obj\Debug\DTOLayer.pdb
-D:\Workspace-Net\SutranWeb\DTOLayer\obj\Debug\DTOLayer.csprojAssemblyReference.cache

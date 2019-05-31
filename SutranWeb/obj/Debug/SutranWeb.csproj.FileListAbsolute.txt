@@ -47,6 +47,7 @@ D:\Workspace-Net\SutranWeb\SutranWeb\bin\BusinessLayer.pdb
 D:\Workspace-Net\SutranWeb\SutranWeb\bin\BusinessLayer.dll.config
 D:\Workspace-Net\SutranWeb\SutranWeb\bin\DTOLayer.pdb
 D:\Workspace-Net\SutranWeb\SutranWeb\bin\EntitiesLayer.pdb
+D:\Workspace-Net\SutranWeb\SutranWeb\bin\EntitiesLayer.dll.config
 D:\Workspace-Net\SutranWeb\SutranWeb\bin\DocumentFormat.OpenXml.xml
 D:\Workspace-Net\SutranWeb\SutranWeb\bin\Microsoft.Practices.Unity.xml
 D:\Workspace-Net\SutranWeb\SutranWeb\bin\Microsoft.Practices.Unity.Configuration.xml
@@ -62,4 +63,3 @@ D:\Workspace-Net\SutranWeb\SutranWeb\obj\Debug\SutranWeb.csproj.CoreCompileInput
 D:\Workspace-Net\SutranWeb\SutranWeb\obj\Debug\SutranWeb.csproj.CopyComplete
 D:\Workspace-Net\SutranWeb\SutranWeb\obj\Debug\SutranWeb.dll
 D:\Workspace-Net\SutranWeb\SutranWeb\obj\Debug\SutranWeb.pdb
-D:\Workspace-Net\SutranWeb\SutranWeb\bin\EntitiesLayer.dll.config

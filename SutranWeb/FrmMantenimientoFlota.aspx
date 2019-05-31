@@ -97,14 +97,14 @@
                     
                     <table>
                         <td>
-                            <asp:TextBox ID="txtIdFlota" runat="server" Style="display: none" />
+                            <asp:TextBox ID="txtEditIdFlota" runat="server" Style="display: none" />
                             <tr>
                                 <td>
                                     <asp:Label ID="lblCliente" runat="server" Text="Cliente: "></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtCliente" runat="server" Width="400px"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCliente"
+                                    <asp:TextBox ID="txtEditCliente" runat="server" Width="400px"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtEditCliente"
                                         ErrorMessage="Debe ingresar un cliente" ForeColor="Red" ValidationGroup="edit">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
@@ -113,8 +113,8 @@
                                     <asp:Label ID="lblUsuario" runat="server" Text="Usuario: "></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtUsuario" runat="server" Width="400px"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtUsuario"
+                                    <asp:TextBox ID="txtEditUsuario" runat="server" Width="400px"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtEditUsuario"
                                         ErrorMessage="Debe ingresar el usuario" ForeColor="Red" ValidationGroup="edit">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
@@ -123,8 +123,8 @@
                                     <asp:Label ID="lblPassword" runat="server" Text="Password: "></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtPassword" runat="server" Width="400px"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtPassword"
+                                    <asp:TextBox ID="txtEditPassword" runat="server" Width="400px"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtEditPassword"
                                         ErrorMessage="Debe ingresar un password" ForeColor="Red" ValidationGroup="edit">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
@@ -133,13 +133,13 @@
                                     <asp:Label ID="lblEditTipoFlota" runat="server" Text="Tipo Flota: "></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:DropDownList ID="ddlTipoFlota" runat="server">
+                                    <asp:DropDownList ID="ddlEditTipoFlota" runat="server">
                                         <asp:ListItem Enabled="true" Text="---- Elegir ----" Value="-1"></asp:ListItem>
                                         <asp:ListItem Text="Camiones" Value="0"></asp:ListItem>
                                         <asp:ListItem Text="Buses" Value="1"></asp:ListItem>
                                     </asp:DropDownList>
-                                    <asp:RequiredFieldValidator InitialValue="-1" ID="RequiredFieldValidator7" runat="server" ControlToValidate="ddlTipoFlota"
-                                        ErrorMessage="Debe seleccionar la flota" ForeColor="Red" ValidationGroup="edit">*</asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator InitialValue="-1" ID="RequiredFieldValidator7" runat="server" ControlToValidate="ddlEditTipoFlota"
+                                        ErrorMessage="Seleccione la flota" ForeColor="Red" ValidationGroup="edit">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -147,7 +147,7 @@
                                     <asp:Label ID="lblActivo" runat="server" Text="Activo: "></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:CheckBox ID="chkActivo" runat="server" Checked="true" AutoPostBack="false" />
+                                    <asp:CheckBox ID="chkEditActivo" runat="server" Checked="true" AutoPostBack="false" />
                                 </td>
                             </tr>
                             <tr>
@@ -211,6 +211,20 @@
                                 <asp:TextBox ID="txtSavePassword" runat="server" Width="400px"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtSavePassword"
                                     ErrorMessage="Debe ingresar un password" ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label ID="Label5" runat="server" Text="Tipo Flota: "></asp:Label>
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="ddlSaveTipoFlota" runat="server">
+                                    <asp:ListItem Enabled="true" Text="---- Elegir ----" Value="-1"></asp:ListItem>
+                                    <asp:ListItem Text="Camiones" Value="0"></asp:ListItem>
+                                    <asp:ListItem Text="Buses" Value="1"></asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator InitialValue="-1" ID="RequiredFieldValidator8" runat="server" ControlToValidate="ddlSaveTipoFlota"
+                                    ErrorMessage="Seleccione la flota" ForeColor="Red" ValidationGroup="add">*</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>

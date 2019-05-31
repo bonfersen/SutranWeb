@@ -18,6 +18,7 @@ D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\EntitiesLayer.dll
 D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\EntityFramework.dll
 D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\EntityFramework.SqlServer.dll
 D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\EntitiesLayer.pdb
+D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\EntitiesLayer.dll.config
 D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\EntityFramework.xml
 D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\EntityFramework.SqlServer.xml
 D:\Workspace-Net\SutranWeb\DataModelLayer\obj\Debug\DataModelLayer.csprojAssemblyReference.cache
@@ -25,4 +26,3 @@ D:\Workspace-Net\SutranWeb\DataModelLayer\obj\Debug\DataModelLayer.csproj.CoreCo
 D:\Workspace-Net\SutranWeb\DataModelLayer\obj\Debug\DataModelLayer.csproj.CopyComplete
 D:\Workspace-Net\SutranWeb\DataModelLayer\obj\Debug\DataModelLayer.dll
 D:\Workspace-Net\SutranWeb\DataModelLayer\obj\Debug\DataModelLayer.pdb
-D:\Workspace-Net\SutranWeb\DataModelLayer\bin\Debug\EntitiesLayer.dll.config

@@ -25,8 +25,9 @@ namespace SutranWeb
         }
 
         [WebMethod(EnableSession = true)]
-        public static object ReporteEventoByFilter(string txtFechaEventoInicial, string txtFechaEventoFinal, string txtVin,
-                                                        int jtStartIndex, int jtPageSize, string jtSorting)
+        public static object ReporteEventoByFilter(string txtFechaEventoInicial, string txtFechaEventoFinal, string txtVin, 
+                                                   string txtNombreFlota, Boolean checkUltimoEvento, 
+                                                   int jtStartIndex, int jtPageSize, string jtSorting)
         {
             try
             {
@@ -36,12 +37,13 @@ namespace SutranWeb
                 if (!string.IsNullOrEmpty(txtFechaEventoInicial) && string.IsNullOrEmpty(txtFechaEventoFinal))
                     throw new Exception("Se debe ingresar la fecha final");
                 if (string.IsNullOrEmpty(txtFechaEventoInicial) && string.IsNullOrEmpty(txtFechaEventoFinal) && 
-                    string.IsNullOrEmpty(txtVin))
+                    string.IsNullOrEmpty(txtVin) && string.IsNullOrEmpty(txtNombreFlota))
                     throw new Exception("Se debe ingresar un criterio de busqueda");
                 
                 // Consulta de vista reportes
                 Dictionary<string, object> reporteDictionary = viewBusiness.GetViewSutranReportEvent(txtFechaEventoInicial, 
-                                                                txtFechaEventoFinal, txtVin, jtStartIndex, jtPageSize, jtSorting);
+                                                                txtFechaEventoFinal, txtVin, txtNombreFlota, checkUltimoEvento, 
+                                                                jtStartIndex, jtPageSize, jtSorting);
                 System.Web.HttpContext.Current.Session["listaReporteEventos"] = reporteDictionary["RecordsSinPaginar"];
 
                 // Respuesta al control JTable

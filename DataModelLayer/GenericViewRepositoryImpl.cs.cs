@@ -19,7 +19,7 @@ namespace DataModelLayer
             this.dbSet = dbContext.Set<TEntity>();
         }
 
-        public List<TEntity> GetViewSutranReportEvent(int startIndex, int count,
+        public List<TEntity> GetViewSutranReportEvent(int startIndex, int count, Boolean top1,
                                                 Expression<Func<TEntity, bool>> filter = null,
                                                 Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null)
         {
@@ -32,9 +32,15 @@ namespace DataModelLayer
 
             if (orderBy != null)
             {
-                return (count > 0)
-                    ? orderBy(query).Skip(startIndex).Take(count).ToList() //Paging
-                    : orderBy(query).ToList(); //No paging
+                if (top1) {
+                    List<TEntity> lstTemp = new List<TEntity>();
+                    lstTemp.Add(orderBy(query).FirstOrDefault());
+                    return lstTemp;
+                }
+                else 
+                    return (count > 0)
+                        ? orderBy(query).Skip(startIndex).Take(count).ToList() //Paging
+                        : orderBy(query).ToList(); //No paging
             }
             else
             {
